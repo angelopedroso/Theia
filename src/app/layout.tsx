@@ -1,3 +1,6 @@
+'use client'
+
+import { SideMenu } from '@/components/SideMenu'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -16,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <SideMenu>{children}</SideMenu>
+      </body>
     </html>
   )
 }
