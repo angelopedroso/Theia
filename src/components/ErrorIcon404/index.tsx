@@ -6,13 +6,13 @@ export function ErrorIcon() {
   return (
     <div className="flex">
       <Image
-        className="w-auto"
+        className="w-16 sm:w-auto"
         src={errorIcon}
         alt='letter "4" to "404"'
         priority
       />
       <Player
-        className="h-[300px] w-[300px] bg-transparent"
+        className="h-44 w-44 bg-transparent sm:h-72 sm:w-72"
         src={
           'https://lottie.host/ab7a5c4d-d0de-4877-be5e-8cffedab2bf1/f7kJBYBWYz.json'
         }
@@ -21,7 +21,7 @@ export function ErrorIcon() {
         autoplay
       />
       <Image
-        className="w-auto"
+        className="w-16 sm:w-auto"
         src={errorIcon}
         alt='letter "4" to "404"'
         priority

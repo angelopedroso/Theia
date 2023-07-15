@@ -9,10 +9,10 @@ export default function NotFound() {
       <div className="flex flex-col items-center gap-9">
         <ErrorIcon />
         <div className="-mt-12 flex flex-col items-center">
-          <h1 className="text-4xl font-bold text-gray-200">
+          <h1 className="text-2xl font-bold text-gray-200 sm:text-4xl">
             Oops! the page not found.
           </h1>
-          <p className="text-sm text-gray-100">
+          <p className="text-xs text-gray-100 sm:text-sm">
             Or simply leverage the expertise of our consultation team.
           </p>
         </div>
