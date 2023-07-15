@@ -3,9 +3,20 @@
 import { SideMenu } from '@/components/SideMenu'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// eslint-disable-next-line camelcase
+import { Inter, DM_Sans, Open_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] })
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--menu-font',
+})
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--menu-font-sub',
+})
 
 export const metadata: Metadata = {
   title: 'Theia',
@@ -19,7 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} ${dmSans.className} ${openSans.className}`}
+      >
         <SideMenu>{children}</SideMenu>
       </body>
     </html>
