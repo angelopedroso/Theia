@@ -6,7 +6,11 @@ import type { Metadata } from 'next'
 // eslint-disable-next-line camelcase
 import { Inter, DM_Sans, Open_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] })
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--main',
+})
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],

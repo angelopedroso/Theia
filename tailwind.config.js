@@ -17,6 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        main: 'var(--main)',
         menu: 'var(--menu-font)',
         'menu-sub': 'var(--menu-font-sub)',
       },
