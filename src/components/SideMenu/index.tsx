@@ -4,11 +4,9 @@ import Image from 'next/image'
 import logoApp from '@/assets/logo.svg'
 
 import { routes } from '@/utils/pageRoutes'
-import { OpenCloseButton } from './openCloseButton'
-import { MenuButton } from './menuButton'
 
 import { HouseLine } from 'phosphor-react'
-import { SubMenu } from './subMenus'
+import { OpenCloseButton, MenuButton, SubMenu } from './components'
 
 export interface SideMenuProps {
   children: ReactNode
@@ -25,7 +23,7 @@ export function SideMenu({ children }: SideMenuProps) {
   return (
     <div className="flex h-screen w-screen">
       <aside
-        className={`relative space-y-4 p-3 pt-2 ${
+        className={`fixed left-0 top-0 z-10 h-screen space-y-4 p-3 pt-2 ${
           open ? 'w-64' : 'w-20'
         } select-none bg-slate-900 duration-500`}
       >
@@ -55,7 +53,13 @@ export function SideMenu({ children }: SideMenuProps) {
           <SubMenu elements={routes.utils} open={open} title="Utils" />
         </div>
       </aside>
-      <main className="flex-1 bg-slate-800">{children}</main>
+      <main
+        className={`w-full ${
+          open ? 'pl-64' : 'pl-20'
+        } bg-slate-800 duration-500`}
+      >
+        {children}
+      </main>
     </div>
   )
 }
