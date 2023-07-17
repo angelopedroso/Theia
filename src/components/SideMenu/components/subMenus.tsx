@@ -1,6 +1,6 @@
-import { MenuButton } from './menuButton'
 import { IconProps } from 'phosphor-react'
 import { ForwardRefExoticComponent, RefAttributes } from 'react'
+import { MenuButton } from './menuButton'
 
 type Element = {
   title: string

@@ -29,7 +29,7 @@ export function MenuButton({
       <span
         className={`font-menu text-sm ${
           !open && 'hidden'
-        } w-max origin-left font-medium duration-200`}
+        } w-max origin-left font-medium duration-500`}
       >
         {title}
       </span>
