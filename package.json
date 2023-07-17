@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
-    "@radix-ui/react-accordion": "^1.1.2",
     "@tanstack/react-query": "^4.29.23",
     "@types/node": "20.4.2",
     "@types/react": "18.2.14",
@@ -20,6 +19,7 @@
     "clsx": "^1.2.1",
     "eslint": "^8.44.0",
     "eslint-config-next": "13.4.9",
+    "framer-motion": "^10.12.21",
     "lucide-react": "^0.260.0",
     "next": "13.4.9",
     "phosphor-react": "^1.4.1",
