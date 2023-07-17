@@ -22,6 +22,9 @@ module.exports = {
         'menu-sub': 'var(--menu-font-sub)',
       },
       colors: {
+        slate: {
+          850: '#1a2537',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -74,6 +77,10 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      screens: {
+        xs: '481px',
+        xxs: '361px',
       },
     },
   },
