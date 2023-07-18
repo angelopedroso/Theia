@@ -17,13 +17,16 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        main: 'var(--main)',
         menu: 'var(--menu-font)',
         'menu-sub': 'var(--menu-font-sub)',
       },
       colors: {
         slate: {
+          750: '#1f2c3f',
           850: '#1a2537',
+          855: '#162030',
+          875: '#131b2a',
+          950: '#0a101e',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -81,6 +84,16 @@ module.exports = {
       screens: {
         xs: '481px',
         xxs: '361px',
+      },
+      minWidth: {
+        card: '15rem',
+      },
+      maxWidth: {
+        xxs: '15rem',
+        '2sm': '17.5rem',
+      },
+      minHeight: {
+        card: '8rem',
       },
     },
   },
