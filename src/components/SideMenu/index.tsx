@@ -1,11 +1,15 @@
-import { ReactElement, ReactNode, useState } from 'react'
+'use client'
+
+import { ReactNode, useState } from 'react'
 
 import Image from 'next/image'
 import logoApp from '@/assets/logo.svg'
 
 import { routes } from '@/utils/pageRoutes'
 
-import { HouseLine } from 'phosphor-react'
+import { useSelectedLayoutSegment } from 'next/navigation'
+
+import { HouseLine } from '@phosphor-icons/react'
 import { OpenCloseButton, MenuButton, SubMenu } from './components'
 
 export interface SideMenuProps {
@@ -13,10 +17,10 @@ export interface SideMenuProps {
 }
 
 export function SideMenu({ children }: SideMenuProps) {
-  const notFoundValidator = children as ReactElement
+  const isNotFound = useSelectedLayoutSegment() === '__DEFAULT__'
   const [open, setOpen] = useState(false)
 
-  if (!notFoundValidator.props) {
+  if (isNotFound) {
     return <main>{children}</main>
   }
 
@@ -36,7 +40,7 @@ export function SideMenu({ children }: SideMenuProps) {
             priority
           />
           <h1
-            className={`origin-left font-main text-xl font-black leading-normal tracking-tighter text-zinc-50 duration-500 sm:text-3xl ${
+            className={`origin-left text-xl font-black leading-normal tracking-tighter text-zinc-50 duration-500 sm:text-3xl ${
               !open && 'scale-0'
             }`}
           >
@@ -53,13 +57,13 @@ export function SideMenu({ children }: SideMenuProps) {
           <SubMenu elements={routes.utils} open={open} title="Utils" />
         </div>
       </aside>
-      <main
+      <div
         className={`w-full ${
           open ? 'pl-64' : 'pl-20'
         } bg-slate-800 duration-500`}
       >
         {children}
-      </main>
+      </div>
     </div>
   )
 }
