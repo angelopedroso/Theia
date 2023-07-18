@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { Card } from './components/Card'
-import { SignOut, UserList, UsersThree } from 'phosphor-react'
+import { Pulse, SignOut, UserList, UsersThree } from '@phosphor-icons/react'
 
 export function Summary() {
   const carouselRef = useRef<HTMLElement>(null)
@@ -20,7 +20,7 @@ export function Summary() {
   return (
     <motion.section
       ref={carouselRef}
-      className="-mt-16 cursor-grab overflow-hidden px-8"
+      className="-mt-16 cursor-grab overflow-hidden"
       whileTap={{ cursor: 'grabbing' }}
     >
       <motion.div
@@ -31,8 +31,24 @@ export function Summary() {
         animate={{ x: 0 }}
       >
         <Card Icon={UsersThree} title="Group" data={12} />
-        <Card Icon={UserList} title="Participants" data={12} />
-        <Card Icon={SignOut} title="Banneds" data={12} />
+        <Card
+          Icon={UserList}
+          iconColor="text-green-500"
+          title="Participants"
+          data={12423}
+        />
+        <Card
+          Icon={SignOut}
+          iconColor="text-red-500"
+          title="Banneds"
+          data={12}
+        />
+        <Card
+          Icon={Pulse}
+          iconColor="text-sky-500"
+          title="Commands"
+          data={123243}
+        />
       </motion.div>
     </motion.section>
   )
