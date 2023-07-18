@@ -1,3 +1,3 @@
-export { MenuButton } from './menuButton'
-export { OpenCloseButton } from './openCloseButton'
-export { SubMenu } from './subMenus'
+export * from './menuButton'
+export * from './openCloseButton'
+export * from './subMenus'
