@@ -47,6 +47,7 @@ export function Summary() {
           Icon={Pulse}
           iconColor="text-sky-500"
           title="Commands"
+          desc="Commands executed"
           data={123243}
         />
       </motion.div>

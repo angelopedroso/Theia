@@ -10,6 +10,7 @@ export interface CardProps {
   iconColor?: string
   title: string
   data: string | number
+  desc?: string
 }
 
 export function Card({ iconColor = 'text-indigo-600', ...props }: CardProps) {
@@ -37,7 +38,7 @@ export function Card({ iconColor = 'text-indigo-600', ...props }: CardProps) {
           ref={paragraphRef}
           className="break-words font-menu text-xs text-gray-400"
         >
-          Commands used
+          {props.desc}
         </p>
       </main>
     </motion.div>
