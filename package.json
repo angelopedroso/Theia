@@ -42,6 +42,7 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.0.1",
     "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.4.0"
+    "prettier-plugin-tailwindcss": "^0.4.0",
+    "tailwind-scrollbar": "^3.0.4"
   }
 }
