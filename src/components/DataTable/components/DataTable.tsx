@@ -45,11 +45,11 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <Table className="relative">
-        <TableHeader className="border-none">
+        <TableHeader className="border-none bg-slate-825">
           {groupTable.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
-              className="border-b border-t border-slate-855 hover:bg-slate-850"
+              className="border-b border-t border-slate-855 hover:bg-slate-825"
             >
               {headerGroup.headers.map((header) => {
                 return (

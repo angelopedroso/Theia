@@ -14,8 +14,9 @@ import { AvatarStack } from '@/components/ui/avatarStack'
 
 import { ColumnDef } from '@tanstack/react-table'
 
-import { DotsThreeOutline, Users } from '@phosphor-icons/react'
+import { DotsThreeOutline } from '@phosphor-icons/react'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
+import { GroupDefaultIcon } from '@/components/groupIcon'
 
 export type Participant = { name: string; image_url: string | undefined }
 type GroupInfo = {
@@ -46,7 +47,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
           <Avatar className="h-8 w-8">
             <AvatarImage src={groupInfo?.url} />
             <AvatarFallback className="bg-gray-500">
-              <Users size={20} weight="fill" className="text-gray-200" />
+              <GroupDefaultIcon />
             </AvatarFallback>
           </Avatar>
           <h3 className="whitespace-nowrap text-base font-medium leading-normal text-white">
@@ -106,7 +107,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
       const percentage = Number(((data[0].value / totalValue) * 100).toFixed(0))
 
       return (
-        <div className={`flex items-center justify-start gap-2 p-2`}>
+        <div className={`flex items-center justify-start gap-2 py-2`}>
           <div className="flex w-8 justify-center">
             <span className="text-sm text-gray-200">{`${percentage}%`}</span>
           </div>
