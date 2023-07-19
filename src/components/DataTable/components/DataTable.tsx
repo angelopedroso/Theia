@@ -31,7 +31,7 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
 
-  const groupTable = useReactTable({
+  const table = useReactTable({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
@@ -46,7 +46,7 @@ export function DataTable<TData, TValue>({
     <div>
       <Table className="relative">
         <TableHeader className="border-none bg-slate-825">
-          {groupTable.getHeaderGroups().map((headerGroup) => (
+          {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
               className="border-b border-t border-slate-855 hover:bg-slate-825"
@@ -67,8 +67,8 @@ export function DataTable<TData, TValue>({
           ))}
         </TableHeader>
         <TableBody>
-          {groupTable.getRowModel().rows.length ? (
-            groupTable.getRowModel().rows.map((row) => (
+          {table.getRowModel().rows.length ? (
+            table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
@@ -90,7 +90,7 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-      <DataTablePagination table={groupTable} />
+      <DataTablePagination table={table} />
     </div>
   )
 }

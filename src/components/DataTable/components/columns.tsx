@@ -1,27 +1,21 @@
 'use client'
 
 import { Progress } from '@/components/ui/progress'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
+
 import { AvatarStack } from '@/components/ui/avatarStack'
 
 import { ColumnDef } from '@tanstack/react-table'
 
 import { DotsThreeOutline } from '@phosphor-icons/react'
-import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 
 import { AvatarName } from '@/components/Column/avatarName'
+import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
+import { MoreButtonTable } from '@/components/ui/moreButtonTable'
 
 export type Participant = { name: string; image_url: string | undefined }
 export type GroupInfo = {
   inviteCode?: string
-  url: string
+  image_url: string
   name: string
 }
 
@@ -37,19 +31,21 @@ export const columns: ColumnDef<GroupTableProps>[] = [
   {
     accessorKey: 'group_info',
     header: ({ column }) => {
-      return <ColumnSortingButton column={column} title="Group name" />
+      return <ColumnSortingButton isGroup column={column} title="Group name" />
     },
     cell: ({ row }) => {
       const groupInfo = row.getValue('group_info') as GroupInfo
 
-      return <AvatarName data={groupInfo} />
+      return <AvatarName data={groupInfo} isGroup />
     },
   },
 
   {
     accessorKey: 'participants',
     header: ({ column }) => {
-      return <ColumnSortingButton column={column} title="Participants" />
+      return (
+        <ColumnSortingButton isGroup column={column} title="Participants" />
+      )
     },
     cell: ({ row }) => {
       return <AvatarStack users={row.getValue('participants')} />
@@ -58,7 +54,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
   {
     accessorKey: 'black_list',
     header: ({ column }) => {
-      return <ColumnSortingButton column={column} title="Black list" />
+      return <ColumnSortingButton isGroup column={column} title="Black list" />
     },
     cell: ({ row }) => {
       if (!row.original.black_list.length) {
@@ -112,7 +108,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
     header: () => (
       <div>
         <h3 className="whitespace-nowrap text-sm font-medium leading-normal text-gray-100">
-          Invite Code
+          Invite code
         </h3>
       </div>
     ),
@@ -150,36 +146,9 @@ export const columns: ColumnDef<GroupTableProps>[] = [
       const groupId = row.original.g_id.replace('@g.us', '')
 
       return (
-        <div className="flex items-center justify-start">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant={'ghost'}
-                className="h-8 w-8 border border-transparent p-0 hover:border-slate-800 hover:bg-slate-750 hover:text-gray-100"
-              >
-                <span className="sr-only">Open menu</span>
-                <DotsThreeOutline
-                  className="h-4 w-4 text-gray-200"
-                  weight="fill"
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="border-slate-850 bg-slate-855"
-            >
-              <DropdownMenuLabel className="text-gray-300">
-                Actions
-              </DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(groupId)}
-                className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
-              >
-                Copy group ID
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <MoreButtonTable data={{ id: groupId, desc: 'Copy group ID' }}>
+          <DotsThreeOutline className="h-4 w-4 text-gray-200" weight="fill" />
+        </MoreButtonTable>
       )
     },
   },
