@@ -1,6 +1,5 @@
 'use client'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Progress } from '@/components/ui/progress'
 import {
   DropdownMenu,
@@ -16,11 +15,12 @@ import { ColumnDef } from '@tanstack/react-table'
 
 import { DotsThreeOutline } from '@phosphor-icons/react'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
-import { GroupDefaultIcon } from '@/components/groupIcon'
+
+import { AvatarName } from '@/components/Column/avatarName'
 
 export type Participant = { name: string; image_url: string | undefined }
-type GroupInfo = {
-  inviteCode: string
+export type GroupInfo = {
+  inviteCode?: string
   url: string
   name: string
 }
@@ -42,19 +42,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
     cell: ({ row }) => {
       const groupInfo = row.getValue('group_info') as GroupInfo
 
-      return (
-        <div className="flex items-center gap-4">
-          <Avatar className="h-8 w-8">
-            <AvatarImage src={groupInfo?.url} />
-            <AvatarFallback className="bg-gray-500">
-              <GroupDefaultIcon />
-            </AvatarFallback>
-          </Avatar>
-          <h3 className="whitespace-nowrap text-base font-medium leading-normal text-white">
-            {groupInfo?.name}
-          </h3>
-        </div>
-      )
+      return <AvatarName data={groupInfo} />
     },
   },
 
