@@ -18,7 +18,7 @@ export function ColumnSortingButton({
       variant={'ghost'}
       onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       className={
-        'border border-transparent text-sm font-medium leading-normal text-gray-100 hover:border-slate-800 hover:bg-slate-750 hover:text-gray-100'
+        'whitespace-nowrap border border-transparent text-sm font-medium leading-normal text-gray-100 hover:border-slate-800 hover:bg-slate-750 hover:text-gray-100'
       }
     >
       {title}

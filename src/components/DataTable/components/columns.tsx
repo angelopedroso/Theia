@@ -49,7 +49,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
               <Users size={20} weight="fill" className="text-gray-200" />
             </AvatarFallback>
           </Avatar>
-          <h3 className="text-base font-medium leading-normal text-white">
+          <h3 className="whitespace-nowrap text-base font-medium leading-normal text-white">
             {groupInfo?.name}
           </h3>
         </div>
@@ -75,7 +75,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
       if (!row.original.black_list.length) {
         return (
           <div className="flex p-2">
-            <span className="text-sm font-medium text-gray-300 ">
+            <span className="whitespace-nowrap text-sm font-medium text-gray-300 ">
               Black list is empty
             </span>
           </div>
@@ -90,7 +90,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
     header: () => {
       return (
         <div>
-          <h3 className="text-sm font-medium leading-normal text-gray-100">
+          <h3 className="whitespace-nowrap text-sm font-medium leading-normal text-gray-100">
             Positions filled
           </h3>
         </div>
@@ -122,7 +122,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
     accessorKey: 'invite_code',
     header: () => (
       <div>
-        <h3 className="text-sm font-medium leading-normal text-gray-100">
+        <h3 className="whitespace-nowrap text-sm font-medium leading-normal text-gray-100">
           Invite Code
         </h3>
       </div>
@@ -133,7 +133,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
       if (!groupInfo?.inviteCode) {
         return (
           <div className="flex p-2">
-            <span className="text-sm font-medium text-gray-300">
+            <span className="whitespace-nowrap text-sm font-medium text-gray-300">
               Bot isn&apos;t admin of the group
             </span>
           </div>
@@ -177,14 +177,14 @@ export const columns: ColumnDef<GroupTableProps>[] = [
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
-              className="border-slate-855 bg-slate-875"
+              className="border-slate-850 bg-slate-855"
             >
               <DropdownMenuLabel className="text-gray-300">
                 Actions
               </DropdownMenuLabel>
               <DropdownMenuItem
                 onClick={() => navigator.clipboard.writeText(groupId)}
-                className="text-gray-200 hover:bg-indigo-600"
+                className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
               >
                 Copy group ID
               </DropdownMenuItem>

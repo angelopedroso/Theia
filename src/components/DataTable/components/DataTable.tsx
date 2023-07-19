@@ -44,7 +44,7 @@ export function DataTable<TData, TValue>({
   })
   return (
     <div>
-      <Table>
+      <Table className="relative">
         <TableHeader className="border-none">
           {groupTable.getHeaderGroups().map((headerGroup) => (
             <TableRow
