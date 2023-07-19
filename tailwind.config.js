@@ -20,6 +20,10 @@ module.exports = {
         menu: 'var(--menu-font)',
         'menu-sub': 'var(--menu-font-sub)',
       },
+      fontSize: {
+        xxs: '0.6875rem',
+        xxxs: '0.625rem',
+      },
       colors: {
         slate: {
           750: '#1f2c3f',
@@ -97,5 +101,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 }
