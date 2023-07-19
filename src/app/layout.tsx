@@ -37,7 +37,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 scrollbar-corner-slate-800 scrollbar-thumb-rounded hover:scrollbar-thumb-slate-500`}
+      >
         <Providers>
           <SideMenu>{children}</SideMenu>
         </Providers>
