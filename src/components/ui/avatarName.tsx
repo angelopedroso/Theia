@@ -1,6 +1,6 @@
 import React from 'react'
 import { GroupDefaultIcon } from '../groupIcon'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 import { GroupInfo } from '../DataTable/components'
 import { UserDefaultIcon } from '../userIcon'
 
@@ -23,11 +23,11 @@ export function AvatarName({ data, isGroup }: AvatarNameProps) {
           {data?.name}
         </h3>
       ) : (
-        <div className="flex flex-col items-start">
+        <div className="flex select-none flex-col items-start">
           <h3 className="whitespace-nowrap text-sm font-medium leading-normal text-white">
             {data?.name}
           </h3>
-          <span className="text-sm leading-normal text-slate-500">
+          <span className="whitespace-nowrap text-sm leading-normal text-slate-500">
             {data.phone}
           </span>
         </div>
