@@ -1,15 +1,18 @@
+'use client'
+
 /* eslint-disable camelcase */
-import { AvatarName } from '@/components/Column/avatarName'
+import { AvatarName } from '@/components/ui/avatarName'
 import { GroupInfo } from '@/components/DataTable/components'
 import { AvatarStack } from '@/components/ui/avatarStack'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { MoreButtonTable } from '@/components/ui/moreButtonTable'
 import { DotsThreeOutlineVertical } from '@phosphor-icons/react'
 import { ColumnDef } from '@tanstack/react-table'
+import { GroupDefaultIcon } from '@/components/groupIcon'
 
 export type AdminTableProps = {
   id: string
-  p_id: Promise<string>
+  p_id: string
   name: string
   image_url: string
   groups: GroupInfo[]
@@ -21,9 +24,8 @@ export const column: ColumnDef<AdminTableProps>[] = [
     header: ({ column }) => {
       return <ColumnSortingButton column={column} title="Name" />
     },
-    cell: async ({ row }) => {
-      const { name, image_url, p_id: pId } = row.original
-      const phone = await pId
+    cell: ({ row }) => {
+      const { name, image_url, p_id: phone } = row.original
 
       return <AvatarName data={{ name, phone, image_url }} />
     },
@@ -42,14 +44,18 @@ export const column: ColumnDef<AdminTableProps>[] = [
     cell: ({ row }) => {
       const groups = row.original.groups
 
-      return <AvatarStack users={groups} />
+      return (
+        <AvatarStack users={groups}>
+          <GroupDefaultIcon />
+        </AvatarStack>
+      )
     },
   },
   {
     id: 'actions',
     enableHiding: false,
-    cell: async ({ row }) => {
-      const phone = await row.original.p_id
+    cell: ({ row }) => {
+      const phone = row.original.p_id
 
       return (
         <MoreButtonTable data={{ id: phone, desc: 'Copy phone number' }}>
