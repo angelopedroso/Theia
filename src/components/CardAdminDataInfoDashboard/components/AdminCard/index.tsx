@@ -10,7 +10,7 @@ export async function AdminCard() {
   })
 
   return (
-    <div className="flex max-w-full flex-col items-start rounded-lg bg-slate-850 shadow-md ">
+    <section className="flex max-w-full flex-col items-start rounded-lg bg-slate-850 shadow-md ">
       <header>
         <h2 className="p-4 text-base leading-normal text-gray-100">Admins</h2>
       </header>
@@ -22,6 +22,6 @@ export async function AdminCard() {
           tableHeight="min-h-xl"
         />
       </main>
-    </div>
+    </section>
   )
 }
