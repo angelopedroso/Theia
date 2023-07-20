@@ -90,6 +90,9 @@ module.exports = {
         xs: '481px',
         xxs: '361px',
       },
+      width: {
+        156: '39rem',
+      },
       minWidth: {
         card: '15rem',
       },
@@ -99,6 +102,11 @@ module.exports = {
       },
       minHeight: {
         card: '8rem',
+        xl: '25.5rem',
+        xxl: '30rem',
+      },
+      gridTemplateRows: {
+        table: '1fr 4rem',
       },
     },
   },
