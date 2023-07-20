@@ -4,8 +4,13 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { Card } from './components/Card'
 import { Pulse, SignOut, UserList, UsersThree } from '@phosphor-icons/react'
+import { DataTotalSummaryProps } from '@/@types/totalSummary'
 
-export function Summary() {
+interface SummaryProps {
+  data: DataTotalSummaryProps
+}
+
+export function Summary({ data }: SummaryProps) {
   const carouselRef = useRef<HTMLElement>(null)
   const [carouselWidth, setCarouselWidth] = useState(0)
 
@@ -30,25 +35,25 @@ export function Summary() {
         initial={{ x: 30 }}
         animate={{ x: 0 }}
       >
-        <Card Icon={UsersThree} title="Group" data={12} />
+        <Card Icon={UsersThree} title="Group" data={data.totalGroups} />
         <Card
           Icon={UserList}
           iconColor="text-green-500"
           title="Participants"
-          data={12423}
+          data={data.totalParticipants}
         />
         <Card
           Icon={SignOut}
           iconColor="text-red-500"
           title="Banneds"
-          data={12}
+          data={data.totalBlacklist}
         />
         <Card
           Icon={Pulse}
           iconColor="text-sky-500"
           title="Commands"
           desc="Commands executed"
-          data={123243}
+          data={data.totalLogs}
         />
       </motion.div>
     </motion.section>
