@@ -1,10 +1,10 @@
 'use client'
 
-import { DataProps } from '../..'
+import { DataTotalLogByGroupProps } from '@/@types/totalLogByGroup'
 import { LineChart } from './lineChart'
 
 export interface ChartCommandsProps {
-  logData: DataProps[]
+  logData: DataTotalLogByGroupProps[]
 }
 
 export function ChartCommands(props: ChartCommandsProps) {
