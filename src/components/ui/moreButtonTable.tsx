@@ -15,7 +15,7 @@ export interface MoreButtonTableProps {
 
 export function MoreButtonTable(props: MoreButtonTableProps) {
   return (
-    <div className="flex items-center justify-start">
+    <div className="flex items-center justify-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
