@@ -1,13 +1,23 @@
 import React from 'react'
-import { AdminCard } from './components/AdminCard'
+import { AdminCard, ChartCommands } from './components'
+import { getDBData } from '@/api/getDBData'
 
-export function CardInfoContainer() {
+export interface DataProps {
+  _count: { command: number }
+  groupId: string
+  chat_name: string
+}
+
+export async function CardInfoContainer() {
+  const data = (await getDBData({
+    uri: 'log/total-by-group',
+    revalidateTimeInSeconds: 10,
+  })) as DataProps[]
+
   return (
-    <section className="flex flex-col items-start justify-between gap-5 md:flex-row">
-      <div>
-        <h3>fdasopjf</h3>
-      </div>
+    <article className="flex flex-col items-start justify-between gap-5 md:flex-row">
+      <ChartCommands logData={data} />
       <AdminCard />
-    </section>
+    </article>
   )
 }
