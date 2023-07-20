@@ -10,7 +10,7 @@ export default function Home() {
           Summary
         </h2>
       </header>
-      <main className="space-y-7 p-8">
+      <main className="space-y-4 p-4 sm:space-y-7 sm:p-8">
         <Summary />
         <GroupTable />
         <CardInfoContainer />
