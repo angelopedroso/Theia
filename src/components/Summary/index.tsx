@@ -20,7 +20,7 @@ export function Summary() {
   return (
     <motion.section
       ref={carouselRef}
-      className="-mt-16 cursor-grab overflow-hidden"
+      className="-mt-16 cursor-grab overflow-hidden pr-0 sm:px-8"
       whileTap={{ cursor: 'grabbing' }}
     >
       <motion.div

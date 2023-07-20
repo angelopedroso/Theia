@@ -25,7 +25,7 @@ export function SideMenu({ children }: SideMenuProps) {
   }
 
   return (
-    <div className="flex h-screen w-screen">
+    <div>
       <aside
         className={`fixed left-0 top-0 z-10 h-screen space-y-4 p-3 pt-2 ${
           open ? 'w-64' : 'w-20'
@@ -58,7 +58,7 @@ export function SideMenu({ children }: SideMenuProps) {
         </div>
       </aside>
       <div
-        className={`w-full ${
+        className={`min-h-screen w-full ${
           open ? 'pl-64' : 'pl-20'
         } bg-slate-800 duration-500`}
       >

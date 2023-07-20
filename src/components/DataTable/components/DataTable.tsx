@@ -23,11 +23,17 @@ import React, { useState } from 'react'
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  tableWidth?: string
+  tableHeight?: 'min-h-xxl' | 'min-h-xl'
+  pageSize?: number
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  tableWidth = '',
+  tableHeight = 'min-h-xxl',
+  pageSize = 5,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
 
@@ -38,13 +44,15 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    initialState: { pagination: { pageSize } },
     state: {
       sorting,
     },
   })
+
   return (
-    <div>
-      <Table className="relative">
+    <div className={`grid ${tableHeight} grid-rows-table`}>
+      <Table className={`relative ${tableWidth}`}>
         <TableHeader className="border-none bg-slate-825">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow

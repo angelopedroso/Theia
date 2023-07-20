@@ -1,7 +1,8 @@
+import { CardInfoContainer } from '@/components/CardAdminDataInfoDashboard'
 import { GroupTable } from '@/components/DataTable'
 import { Summary } from '@/components/Summary'
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <header className="h-44 w-full bg-indigo-600 p-8 px-8 pb-28">
@@ -9,9 +10,10 @@ export default async function Home() {
           Summary
         </h2>
       </header>
-      <main className="space-y-7 pl-7 sm:px-8">
+      <main className="space-y-7 p-8">
         <Summary />
         <GroupTable />
+        <CardInfoContainer />
       </main>
     </>
   )
