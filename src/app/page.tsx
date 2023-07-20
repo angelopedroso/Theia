@@ -1,8 +1,15 @@
+import { DataTotalSummaryProps } from '@/@types/totalSummary'
+import { getDBData } from '@/api/getDBData'
 import { CardInfoContainer } from '@/components/CardAdminDataInfoDashboard'
 import { GroupTable } from '@/components/DataTable'
 import { Summary } from '@/components/Summary'
 
-export default function Home() {
+export default async function Home() {
+  const data = (await getDBData({
+    uri: 'summary',
+    revalidateTimeInSeconds: 10,
+  })) as DataTotalSummaryProps
+
   return (
     <>
       <header className="h-44 w-full bg-indigo-600 p-8 px-8 pb-28">
@@ -11,7 +18,7 @@ export default function Home() {
         </h2>
       </header>
       <main className="space-y-4 p-4 sm:space-y-7 sm:p-8">
-        <Summary />
+        <Summary data={data} />
         <GroupTable />
         <CardInfoContainer />
       </main>
