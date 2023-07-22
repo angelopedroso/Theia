@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { IconProps } from '@phosphor-icons/react'
 
 import React, { useRef } from 'react'
+import { formatNumberToThousandSeparator } from '@/utils/formatValues'
 
 export interface CardProps {
   Icon: React.ForwardRefExoticComponent<
@@ -32,7 +33,7 @@ export function Card({ iconColor = 'text-indigo-600', ...props }: CardProps) {
         } gap-2`}
       >
         <strong className="font-menu text-4xl font-bold text-white">
-          {props.data}
+          {formatNumberToThousandSeparator(Number(props.data))}
         </strong>
         <p
           ref={paragraphRef}
