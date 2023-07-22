@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode } from 'react'
 import {
   DropdownMenu,
@@ -9,7 +11,7 @@ import {
 import { Button } from './button'
 
 export interface MoreButtonTableProps {
-  data: { id: string; desc: string }
+  data: { id: string; desc: string; menuTitle?: string }
   children: ReactNode
 }
 
@@ -31,10 +33,12 @@ export function MoreButtonTable(props: MoreButtonTableProps) {
           className="border-slate-850 bg-slate-855"
         >
           <DropdownMenuLabel className="text-gray-300">
-            Actions
+            {props.data.menuTitle || 'Actions'}
           </DropdownMenuLabel>
           <DropdownMenuItem
-            onClick={() => navigator.clipboard.writeText(props.data.id)}
+            onClick={async () =>
+              await navigator.clipboard.writeText(props.data.id)
+            }
             className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
           >
             {props.data.desc}
