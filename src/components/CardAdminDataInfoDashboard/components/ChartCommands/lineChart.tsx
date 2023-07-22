@@ -1,8 +1,8 @@
+import { DataTotalLogByGroupProps } from '@/@types/totalLogByGroup'
 import { ResponsiveContainer, Tooltip, Area, AreaChart, XAxis } from 'recharts'
-import { DataProps } from '../..'
 
 export interface LineChartProps {
-  data: DataProps[]
+  data: DataTotalLogByGroupProps[]
 }
 
 const CustomTooltip = ({
@@ -41,7 +41,7 @@ export function LineChart(props: LineChartProps) {
   })
 
   return (
-    <ResponsiveContainer width="100%" height={380}>
+    <ResponsiveContainer width="100%" height={377}>
       <AreaChart width={500} height={400} data={formattedData}>
         <Tooltip content={<CustomTooltip />} />
         <XAxis dataKey="name" className="text-sm" hide />
