@@ -8,7 +8,7 @@ export interface DataTablePaginationProps<T> {
 
 export function DataTablePagination<T>(props: DataTablePaginationProps<T>) {
   return (
-    <div className="flex items-center justify-end space-x-2 border-t border-slate-855 p-4">
+    <div className="flex items-center justify-end space-x-2 border-t border-slate-855 p-4 pb-0">
       <Button
         variant="outline"
         size="sm"
