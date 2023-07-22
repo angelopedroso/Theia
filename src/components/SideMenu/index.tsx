@@ -27,7 +27,7 @@ export function SideMenu({ children }: SideMenuProps) {
   return (
     <div>
       <aside
-        className={`fixed left-0 top-0 z-10 h-screen space-y-4 p-3 pt-2 ${
+        className={`fixed left-0 top-0 z-10 min-h-full space-y-4 p-3 pt-2 ${
           open ? 'w-64' : 'w-20'
         } select-none bg-slate-900 duration-500`}
       >
