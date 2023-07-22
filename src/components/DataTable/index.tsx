@@ -9,7 +9,7 @@ export async function GroupTable() {
   })
 
   return (
-    <section className="flex flex-col items-start rounded-lg bg-slate-850 shadow-md">
+    <section className="flex flex-col items-start rounded-lg bg-slate-850 pb-4 shadow-md">
       <header>
         <h2 className="p-4 text-base leading-normal text-gray-100">
           Active Groups

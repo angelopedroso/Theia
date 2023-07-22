@@ -35,7 +35,7 @@ export function Summary({ data }: SummaryProps) {
         initial={{ x: 30 }}
         animate={{ x: 0 }}
       >
-        <Card Icon={UsersThree} title="Group" data={data.totalGroups} />
+        <Card Icon={UsersThree} title="Groups" data={data.totalGroups} />
         <Card
           Icon={UserList}
           iconColor="text-green-500"
