@@ -10,7 +10,7 @@ export interface ChartCommandsProps {
 export function ChartCommands(props: ChartCommandsProps) {
   return (
     <section className="flex w-full max-w-full flex-1 flex-col items-start rounded-lg bg-slate-850 pb-4 shadow-md">
-      <header>
+      <header className="w-full border-b border-slate-855">
         <h2 className="p-4 text-base leading-normal text-gray-100">
           Commands used by group
         </h2>
