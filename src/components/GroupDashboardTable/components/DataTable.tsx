@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
   tableWidth = '',
-  tableHeight = 'min-h-xxl',
+  tableHeight = 'min-h-2xl',
   pageSize = 5,
   filterTable = false,
 }: DataTableProps<TData, TValue>) {
