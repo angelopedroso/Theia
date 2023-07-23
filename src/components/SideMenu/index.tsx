@@ -28,8 +28,8 @@ export function SideMenu({ children }: SideMenuProps) {
     <div>
       <aside
         className={`fixed left-0 top-0 z-10 min-h-full space-y-4 p-3 pt-2 ${
-          open ? 'w-64' : 'w-20'
-        } select-none bg-slate-900 duration-500`}
+          open ? 'sm:w-64' : 'w-20'
+        } ${open && 'w-40'} select-none bg-slate-900 duration-500`}
       >
         <OpenCloseButton open={open} setOpen={setOpen} />
         <header className="flex items-center gap-2">
@@ -58,8 +58,8 @@ export function SideMenu({ children }: SideMenuProps) {
         </div>
       </aside>
       <div
-        className={`min-h-screen w-full ${
-          open ? 'pl-64' : 'pl-20'
+        className={`min-h-screen w-full ${open ? 'sm:pl-64' : 'pl-20'} ${
+          open && 'pl-40'
         } bg-slate-800 duration-500`}
       >
         {children}

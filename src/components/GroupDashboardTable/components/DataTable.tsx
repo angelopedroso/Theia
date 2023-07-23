@@ -70,7 +70,9 @@ export function DataTable<TData, TValue>({
         <FilterBy filter={filterBy} setFilterBy={setFilterBy} table={table} />
       )}
 
-      <div className={`grid ${tableHeight} grid-rows-table`}>
+      <div
+        className={`grid ${tableHeight} grid-rows-table overflow-hidden xs:overflow-auto`}
+      >
         <Table className={`relative ${tableWidth}`}>
           <TableHeader className="rounded-lg border-none bg-slate-825">
             {table.getHeaderGroups().map((headerGroup) => (
