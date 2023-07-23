@@ -1,3 +1,5 @@
+'use client'
+
 import { DataTotalLogByGroupProps } from '@/@types/totalLogByGroup'
 import { ResponsiveContainer, Tooltip, Area, AreaChart, XAxis } from 'recharts'
 
