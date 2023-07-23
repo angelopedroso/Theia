@@ -1,9 +1,9 @@
 import { getDBData } from '@/api/getDBData'
-import { DataTable } from '@/components/DataTable/components'
 import { Header } from '@/components/ui/header'
 import React from 'react'
 import { columns } from './columns'
 import { FilterTableProvider } from '@/contexts/filterContext'
+import { DataTable } from '@/components/GroupDashboardTable/components'
 
 export default async function ActivityLogPage() {
   const logData = await getDBData({ uri: 'log', revalidateTimeInSeconds: 10 })
