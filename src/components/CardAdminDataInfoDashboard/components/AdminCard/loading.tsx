@@ -6,11 +6,11 @@ export function AdminLoading() {
     <div className="flex min-h-3xl w-full flex-col items-start rounded-lg bg-slate-850 p-4 shadow-md">
       <Skeleton className="mb-4 h-6 w-36" />
       <div className="w-full space-y-2 overflow-x-scroll lg:overflow-x-hidden">
-        <div className="flex h-12 w-full justify-between xl:w-156">
+        <div className="flex h-12 w-156 justify-between">
           <Skeleton className="w-36 rounded-md" />
           <Skeleton className="w-36 rounded-md" />
         </div>
-        <div className="w-full xl:w-156">
+        <div className="w-156">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
