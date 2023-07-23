@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { AdminCard, ChartCommands } from './components'
-import { getDBData } from '@/api/getDBData'
-import { DataTotalLogByGroupProps } from '@/@types/totalLogByGroup'
+import { AdminLoading } from './components/AdminCard/loading'
+import { ChartLogLoading } from './components/ChartCommands/loading'
 
-export async function CardInfoContainer() {
-  const data = (await getDBData({
-    uri: 'log/total-by-group',
-    revalidateTimeInSeconds: 10,
-  })) as DataTotalLogByGroupProps[]
-
+export function CardInfoContainer() {
   return (
     <article className="flex flex-col items-start justify-between gap-5 md:flex-row">
-      <ChartCommands logData={data} />
-      <AdminCard />
+      <Suspense fallback={<ChartLogLoading />}>
+        <ChartCommands />
+      </Suspense>
+      <Suspense fallback={<AdminLoading />}>
+        <AdminCard />
+      </Suspense>
     </article>
   )
 }
