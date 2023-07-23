@@ -21,8 +21,8 @@ module.exports = {
         'menu-sub': 'var(--menu-font-sub)',
       },
       fontSize: {
-        xxs: '0.6875rem',
-        xxxs: '0.625rem',
+        '2xs': '0.6875rem',
+        '3xs': '0.625rem',
       },
       colors: {
         slate: {
@@ -88,7 +88,7 @@ module.exports = {
       },
       screens: {
         xs: '481px',
-        xxs: '361px',
+        '2xs': '361px',
       },
       width: {
         156: '39rem',
@@ -97,13 +97,14 @@ module.exports = {
         card: '15rem',
       },
       maxWidth: {
-        xxs: '15rem',
+        '2xs': '15rem',
         '2sm': '17.5rem',
       },
       minHeight: {
         card: '8rem',
         xl: '25.5rem',
-        xxl: '30rem',
+        '2xl': '30rem',
+        '3xl': '34.5rem',
       },
       gridTemplateRows: {
         table: '1fr 4rem',
