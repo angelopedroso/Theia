@@ -5,13 +5,13 @@ export function AdminLoading() {
   return (
     <div className="flex min-h-3xl w-full flex-col items-start rounded-lg bg-slate-850 p-4 shadow-md">
       <Skeleton className="mb-4 h-6 w-36" />
-      <div className="w-full space-y-2 overflow-x-scroll lg:overflow-x-hidden">
-        <div className="flex h-12 w-156 justify-between">
+      <div className="w-full space-y-2 overflow-x-scroll scrollbar-thin scrollbar-track-slate-850 scrollbar-thumb-slate-600 scrollbar-corner-slate-850 scrollbar-thumb-rounded hover:scrollbar-thumb-slate-500 lg:overflow-x-hidden">
+        <div className="flex h-12 w-full gap-6 xl:w-156 xl:justify-between xl:gap-0">
           <Skeleton className="w-36 rounded-md" />
           <Skeleton className="w-36 rounded-md" />
         </div>
-        <div className="w-156">
-          <div className="flex items-center justify-between py-4">
+        <div className="w-full xl:w-156">
+          <div className="flex items-center gap-6 py-4 xl:w-156 xl:justify-between xl:gap-0">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
               <Skeleton className="h-6 w-44" />
@@ -23,7 +23,7 @@ export function AdminLoading() {
               <Skeleton className="h-8 w-8 rounded-md" />
             </div>
           </div>
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-6 py-4 xl:w-156 xl:justify-between xl:gap-0">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
               <Skeleton className="h-6 w-44" />
@@ -35,7 +35,7 @@ export function AdminLoading() {
               <Skeleton className="h-8 w-8 rounded-md" />
             </div>
           </div>
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-6 py-4 xl:w-156 xl:justify-between xl:gap-0">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
               <Skeleton className="h-6 w-44" />
@@ -47,7 +47,7 @@ export function AdminLoading() {
               <Skeleton className="h-8 w-8 rounded-md" />
             </div>
           </div>
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-6 py-4 xl:w-156 xl:justify-between xl:gap-0">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
               <Skeleton className="h-6 w-44" />
@@ -59,7 +59,7 @@ export function AdminLoading() {
               <Skeleton className="h-8 w-8 rounded-md" />
             </div>
           </div>
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-6 py-4 xl:w-156 xl:justify-between xl:gap-0">
             <div className="flex items-center gap-4">
               <Skeleton className="h-8 w-8 rounded-full" />
               <Skeleton className="h-6 w-44" />
