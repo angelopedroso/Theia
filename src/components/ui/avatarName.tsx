@@ -1,8 +1,8 @@
 import React from 'react'
 import { GroupDefaultIcon } from '../groupIcon'
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
-import { GroupInfo } from '../DataTable/components'
 import { UserDefaultIcon } from '../userIcon'
+import { GroupInfo } from '../GroupDashboardTable/components'
 
 export interface AvatarNameProps {
   data: GroupInfo & { phone?: string }

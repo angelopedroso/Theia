@@ -1,7 +1,7 @@
 import React from 'react'
 import { column } from './columns'
 import { getDBData } from '@/api/getDBData'
-import { DataTable } from '@/components/GroupDashboardTable/components'
+import { DataTable } from '@/components/dataTable'
 
 export async function AdminCard() {
   const data = await getDBData({

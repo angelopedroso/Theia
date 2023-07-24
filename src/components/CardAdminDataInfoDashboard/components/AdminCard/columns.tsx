@@ -2,13 +2,13 @@
 
 /* eslint-disable camelcase */
 import { AvatarName } from '@/components/ui/avatarName'
-import { GroupInfo } from '@/components/DataTable/components'
 import { AvatarStack } from '@/components/ui/avatarStack'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { MoreButtonTable } from '@/components/ui/moreButtonTable'
 import { DotsThreeOutlineVertical } from '@phosphor-icons/react'
 import { ColumnDef } from '@tanstack/react-table'
 import { GroupDefaultIcon } from '@/components/groupIcon'
+import { GroupInfo } from '@/components/GroupDashboardTable/components'
 
 export type AdminTableProps = {
   id: string

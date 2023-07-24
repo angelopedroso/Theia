@@ -1,6 +1,7 @@
 import React from 'react'
-import { DataTable, columns } from './components'
+import { columns } from './components'
 import { getDBData } from '@/api/getDBData'
+import { DataTable } from '@/components/dataTable'
 
 export async function GroupTable() {
   const data = await getDBData({

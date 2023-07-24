@@ -78,8 +78,8 @@ export function FilterBy<T>({ table, filter, setFilterBy }: FilterByProps<T>) {
             </span>
             <Switch
               className="h-4 w-8"
-              onCheckedChange={(events) =>
-                table.getColumn('is_group')?.setFilterValue(events)
+              onCheckedChange={(event) =>
+                table.getColumn('is_group')?.setFilterValue(event)
               }
               defaultChecked
             />
