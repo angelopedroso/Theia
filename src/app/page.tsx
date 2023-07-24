@@ -1,6 +1,6 @@
 import { DataTotalSummaryProps } from '@/@types/totalSummary'
 import { getDBData } from '@/api/getDBData'
-import { CardInfoContainer } from '@/components/CardAdminDataInfoDashboard'
+import { CardInfoContainer } from '@/components/AdminDashboardInfoCard'
 import { GroupTable } from '@/components/GroupDashboardTable'
 import { GroupTableLoading } from '@/components/GroupDashboardTable/loading'
 import { Summary } from '@/components/Summary'
