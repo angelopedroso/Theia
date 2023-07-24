@@ -25,7 +25,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -47,7 +47,7 @@ export function DataTable<TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [filterBy, setFilterBy] = useState('chat_name')
-  const windowWidth = window.innerWidth > 480
+  const [windowWidth, setWindowWidth] = useState(false)
 
   const table = useReactTable({
     columns,
@@ -58,12 +58,16 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
-    initialState: { pagination: { pageSize: windowWidth ? pageSize : 5 } },
     state: {
       sorting,
       columnFilters,
     },
   })
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth > 480)
+    table.setPageSize(windowWidth ? pageSize : 5)
+  }, [pageSize, table, windowWidth])
 
   return (
     <div className="space-y-8">
