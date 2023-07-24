@@ -46,7 +46,8 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [filterBy, setFilterBy] = useState<string>('chat_name')
+  const [filterBy, setFilterBy] = useState('chat_name')
+  const windowWidth = window.innerWidth > 480
 
   const table = useReactTable({
     columns,
@@ -57,7 +58,7 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
-    initialState: { pagination: { pageSize } },
+    initialState: { pagination: { pageSize: windowWidth ? pageSize : 5 } },
     state: {
       sorting,
       columnFilters,
@@ -71,7 +72,9 @@ export function DataTable<TData, TValue>({
       )}
 
       <div
-        className={`grid ${tableHeight} grid-rows-table overflow-hidden xs:overflow-auto`}
+        className={`grid ${
+          windowWidth ? tableHeight : 'min-h-xl'
+        } grid-rows-table overflow-hidden xs:overflow-auto`}
       >
         <Table className={`relative ${tableWidth}`}>
           <TableHeader className="rounded-lg border-none bg-slate-825">
@@ -82,7 +85,7 @@ export function DataTable<TData, TValue>({
               >
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="" key={header.id}>
+                    <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
