@@ -7,7 +7,7 @@ import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { MoreButtonTable } from '@/components/ui/moreButtonTable'
 import { DotsThreeOutlineVertical } from '@phosphor-icons/react'
 import { ColumnDef } from '@tanstack/react-table'
-import { GroupDefaultIcon } from '@/components/groupIcon'
+import { DefaultGroupIcon } from '@/components/groupIcon'
 import { GroupInfo } from '@/components/GroupDashboardTable/components'
 
 export type AdminTableProps = {
@@ -46,7 +46,7 @@ export const column: ColumnDef<AdminTableProps>[] = [
 
       return (
         <AvatarStack users={groups}>
-          <GroupDefaultIcon />
+          <DefaultGroupIcon />
         </AvatarStack>
       )
     },
