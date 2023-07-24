@@ -105,6 +105,7 @@ module.exports = {
         xl: '25.5rem',
         '2xl': '30rem',
         '3xl': '34.5rem',
+        '4xl': '36.875rem',
       },
       gridTemplateRows: {
         table: '1fr 4rem',
