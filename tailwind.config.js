@@ -107,6 +107,10 @@ module.exports = {
         '3xl': '34.5rem',
         '4xl': '36.875rem',
       },
+      maxHeight: {
+        '4xl': '36.875rem',
+        '5xl': '39rem',
+      },
       gridTemplateRows: {
         table: '1fr 4rem',
       },
