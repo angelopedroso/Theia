@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 
 export interface CardSettingsProps {
@@ -7,15 +8,21 @@ export interface CardSettingsProps {
 
 export function CardSettings(props: CardSettingsProps) {
   return (
-    <div className="flex items-center gap-2">
+    <motion.div
+      className="flex items-center gap-2"
+      variants={{
+        open: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        closed: { opacity: 0 },
+      }}
+    >
       <span
-        className={`flex h-2 w-2 rounded-full ${
+        className={`h-2 w-2 shrink-0 rounded-full ${
           props.status ? 'bg-green-500' : 'bg-indigo-600'
         }`}
       />
       <p className="font-menu text-sm font-medium text-slate-500">
         {props.name}
       </p>
-    </div>
+    </motion.div>
   )
 }
