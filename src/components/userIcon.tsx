@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function UserDefaultIcon() {
+export function DefaultUserIcon() {
   return (
     <svg
       viewBox="0 0 212 212"

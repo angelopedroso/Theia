@@ -1,23 +1,21 @@
 import React from 'react'
 
-export function GroupDefaultIcon() {
+export function DefaultGroupIcon() {
   return (
     <svg
-      version="1.1"
-      id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
+      viewBox="0 0 256 256"
       height="256"
       width="256"
-      viewBox="0 0 256 256"
+      preserveAspectRatio="xMidYMid meet"
+      version="1.1"
+      x="0px"
+      y="0px"
       enableBackground="new 0 0 256 256"
       xmlSpace="preserve"
     >
       <path
         fill="#6B7280"
         opacity="1.000000"
-        stroke="none"
         d="
 M160.000000,257.000000 
 	C156.638718,257.000000 153.277420,257.000000 149.458008,256.531342 
