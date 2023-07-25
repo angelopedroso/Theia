@@ -10,7 +10,7 @@ export default async function ActivityLogPage() {
 
   return (
     <FilterTableProvider>
-      <div className="flex h-full flex-col space-y-14 p-8">
+      <div className="flex h-full flex-col p-8">
         <Header title="Activy Log" subtitle="List of all activity" />
         <main className="flex w-full flex-1 flex-col rounded-lg bg-slate-850 p-4 shadow-md">
           <DataTable

@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export function Header(props: HeaderProps) {
   return (
-    <header className="w-full">
+    <header className="mb-14 w-full">
       <h2 className="text-sm font-bold leading-normal text-zinc-50 2xs:text-lg sm:text-2xl">
         {props.title}
       </h2>
