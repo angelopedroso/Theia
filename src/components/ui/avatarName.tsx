@@ -1,7 +1,7 @@
 import React from 'react'
-import { GroupDefaultIcon } from '../groupIcon'
+import { DefaultGroupIcon } from '../groupIcon'
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
-import { UserDefaultIcon } from '../userIcon'
+import { DefaultUserIcon } from '../userIcon'
 import { GroupInfo } from '../GroupDashboardTable/components'
 
 export interface AvatarNameProps {
@@ -15,7 +15,7 @@ export function AvatarName({ data, isGroup }: AvatarNameProps) {
       <Avatar className="h-8 w-8">
         <AvatarImage src={data?.image_url} />
         <AvatarFallback className="bg-gray-500">
-          {isGroup ? <GroupDefaultIcon /> : <UserDefaultIcon />}
+          {isGroup ? <DefaultGroupIcon /> : <DefaultUserIcon />}
         </AvatarFallback>
       </Avatar>
       {isGroup ? (

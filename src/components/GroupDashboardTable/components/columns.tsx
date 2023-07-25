@@ -11,7 +11,7 @@ import { DotsThreeOutline } from '@phosphor-icons/react'
 import { AvatarName } from '@/components/ui/avatarName'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { MoreButtonTable } from '@/components/ui/moreButtonTable'
-import { UserDefaultIcon } from '@/components/userIcon'
+import { DefaultUserIcon } from '@/components/userIcon'
 
 export type Participant = { name: string; image_url: string | undefined }
 export type GroupInfo = {
@@ -51,7 +51,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
     cell: ({ row }) => {
       return (
         <AvatarStack users={row.getValue('participants')}>
-          <UserDefaultIcon />
+          <DefaultUserIcon />
         </AvatarStack>
       )
     },
@@ -74,7 +74,7 @@ export const columns: ColumnDef<GroupTableProps>[] = [
 
       return (
         <AvatarStack users={row.getValue('black_list')}>
-          <UserDefaultIcon />
+          <DefaultUserIcon />
         </AvatarStack>
       )
     },
