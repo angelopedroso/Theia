@@ -1,5 +1,5 @@
 import { getDBData } from '@/api/getDBData'
-import { CardGroupMotion } from '@/components/GroupCard/cardGroup'
+import { CardGroupsPage } from '@/components/GroupCard/cardGroupsPage'
 
 import { Header } from '@/components/ui/header'
 import React from 'react'
@@ -16,9 +16,7 @@ export default async function Groups() {
       <main className="flex h-full items-start px-16">
         <div className="grid w-full grid-cols-2 place-items-center gap-8 lg:grid-cols-3">
           {data.map((group) => {
-            return (
-              <CardGroupMotion layoutId={group.id} key={group.id} {...group} />
-            )
+            return <CardGroupsPage key={group.id} data={group} />
           })}
         </div>
       </main>
