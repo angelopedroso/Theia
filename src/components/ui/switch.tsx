@@ -16,14 +16,25 @@ const Switch = React.forwardRef<
     )}
     {...props}
     ref={ref}
-  >
-    <SwitchPrimitives.Thumb
-      className={cn(
-        'pointer-events-none block h-3 w-3 rounded-full bg-white shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0 dark:bg-slate-950',
-      )}
-    />
-  </SwitchPrimitives.Root>
+  />
 ))
+
 Switch.displayName = SwitchPrimitives.Root.displayName
 
-export { Switch }
+const SwitchThumb = React.forwardRef<
+  React.ElementRef<typeof SwitchPrimitives.Thumb>,
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Thumb>
+>(({ className, ...props }, ref) => (
+  <SwitchPrimitives.Thumb
+    className={cn(
+      'pointer-events-none block h-3 w-3 rounded-full bg-white shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0 dark:bg-slate-950',
+      className,
+    )}
+    {...props}
+    ref={ref}
+  />
+))
+
+SwitchThumb.displayName = SwitchPrimitives.Thumb.displayName
+
+export { Switch, SwitchThumb }

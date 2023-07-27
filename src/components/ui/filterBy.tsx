@@ -15,7 +15,7 @@ import { Input } from './input'
 
 import { Table } from '@tanstack/react-table'
 import { filterTableContext } from '@/contexts/filterContext'
-import { Switch } from './switch'
+import { Switch, SwitchThumb } from './switch'
 
 export interface FilterByProps<T> {
   table: Table<T>
@@ -82,7 +82,9 @@ export function FilterBy<T>({ table, filter, setFilterBy }: FilterByProps<T>) {
                 table.getColumn('is_group')?.setFilterValue(event)
               }
               defaultChecked
-            />
+            >
+              <SwitchThumb />
+            </Switch>
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
