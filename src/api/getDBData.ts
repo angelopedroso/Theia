@@ -5,10 +5,13 @@ interface FetchProps {
   uri: string
 }
 
-export async function getDBData(props: FetchProps) {
-  const res = await fetch(`${API_HOST_URL}/${props.uri}`, {
+export async function getDBData({
+  uri = '',
+  revalidateTimeInSeconds = 60,
+}: FetchProps) {
+  const res = await fetch(`${API_HOST_URL}/${uri}`, {
     next: {
-      revalidate: props.revalidateTimeInSeconds,
+      revalidate: revalidateTimeInSeconds,
     },
   })
 

@@ -22,31 +22,36 @@ type CardGroupProps = {
   isModal?: boolean
 }
 
-export function CardGroup({ isModal = false, ...props }: CardGroupProps) {
+export function CardGroup({
+  isModal = false,
+  data,
+  toggle,
+  children,
+}: CardGroupProps) {
   const groupSettings: CardSettingsProps[] = [
     {
       name: 'Welcome',
-      status: props.data.bem_vindo,
+      status: data.bem_vindo,
     },
     {
       name: 'Link detector',
-      status: props.data.anti_link,
+      status: data.anti_link,
     },
     {
       name: 'Malicious content detector',
-      status: props.data.anti_porn,
+      status: data.anti_porn,
     },
     {
       name: 'Freezing whatsapp detector',
-      status: props.data.anti_trava.status,
+      status: data.anti_trava.status,
     },
     {
       name: 'Auto group invite link',
-      status: props.data.auto_invite_link,
+      status: data.auto_invite_link,
     },
     {
       name: 'Auto sticker',
-      status: props.data.auto_sticker,
+      status: data.auto_sticker,
     },
   ]
 
@@ -57,45 +62,43 @@ export function CardGroup({ isModal = false, ...props }: CardGroupProps) {
       } select-none border-slate-855 bg-slate-850 lg:min-h-full ${
         isModal && 'relative h-auto'
       }`}
-      onClick={props.toggle}
+      onClick={toggle}
       whileHover={{ scale: !isModal ? 1.05 : 1.0 }}
     >
       <CardHeader className="flex items-center justify-center">
         <Avatar className="h-32 w-32">
-          <AvatarImage src={props.data.group_info?.image_url} />
+          <AvatarImage src={data.group_info?.image_url} />
           <AvatarFallback className="bg-gray-500">
             <DefaultGroupIcon />
           </AvatarFallback>
         </Avatar>
-        <CardTitle className="text-white">
-          {props.data.group_info.name}
-        </CardTitle>
+        <CardTitle className="text-white">{data.group_info.name}</CardTitle>
         <CardDescription>
-          {props.data.group_info.inviteCode && (
+          {data.group_info.inviteCode && (
             <a
-              href={props.data.group_info.inviteCode}
+              href={data.group_info.inviteCode}
               target="_blank"
               className="cursor-pointer break-all text-sm font-medium text-indigo-500 duration-200 hover:text-indigo-400"
               rel="noreferrer"
             >
-              {props.data.group_info.inviteCode}
+              {data.group_info.inviteCode}
             </a>
           )}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4 lg:gap-0">
           <div className="flex items-center gap-2">
             <UsersFour size={24} weight="fill" className="text-indigo-600" />
             <span className="font-menu text-sm font-medium text-slate-500">
-              {props.data.participants.length} participants
+              {data.participants.length} participants
             </span>
           </div>
           <div className="flex items-center gap-2">
             <SignOut size={24} weight="fill" className="text-indigo-600" />
             <span className="font-menu text-sm font-medium text-slate-500">
-              {props.data.black_list.length
-                ? `${props.data.black_list.length} blacklisted participants`
+              {data.black_list.length
+                ? `${data.black_list.length} blacklisted participants`
                 : 'No blacklisted participants'}
             </span>
           </div>
@@ -111,7 +114,7 @@ export function CardGroup({ isModal = false, ...props }: CardGroupProps) {
           </div>
         </div>
       </CardContent>
-      {props.children}
+      {children}
     </CardMotion>
   )
 }

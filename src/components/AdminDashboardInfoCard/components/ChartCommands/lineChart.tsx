@@ -33,8 +33,8 @@ const CustomTooltip = ({
   return null
 }
 
-export function LineChart(props: LineChartProps) {
-  const formattedData = props.data.map((data) => {
+export function LineChart({ data }: LineChartProps) {
+  const formattedData = data.map((data) => {
     return {
       id: data.groupId,
       name: data.chat_name,

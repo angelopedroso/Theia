@@ -15,12 +15,12 @@ export const filterTableContext = createContext<FilterTableContextProps>(
   {} as FilterTableContextProps,
 )
 
-export function FilterTableProvider(props: FilterTableProviderProps) {
+export function FilterTableProvider({ children }: FilterTableProviderProps) {
   const [search, setSearch] = useState('')
 
   return (
     <filterTableContext.Provider value={{ search, setSearch }}>
-      {props.children}
+      {children}
     </filterTableContext.Provider>
   )
 }

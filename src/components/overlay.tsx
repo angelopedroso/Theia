@@ -6,11 +6,11 @@ export interface OverlayProps {
   close: () => void
 }
 
-export function Overlay(props: OverlayProps) {
+export function Overlay({ close, children }: OverlayProps) {
   return (
     <motion.div
       className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black/60"
-      onClick={props.close}
+      onClick={close}
       variants={{
         open: { backgroundColor: 'rgba(0,0,0,0.6)' },
         closed: { backgroundColor: 'rgba(0,0,0,0)' },
@@ -19,7 +19,7 @@ export function Overlay(props: OverlayProps) {
       exit={'closed'}
       animate={'open'}
     >
-      {props.children}
+      {children}
     </motion.div>
   )
 }

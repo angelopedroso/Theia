@@ -6,14 +6,14 @@ export interface DataTablePaginationProps<T> {
   table: Table<T>
 }
 
-export function DataTablePagination<T>(props: DataTablePaginationProps<T>) {
+export function DataTablePagination<T>({ table }: DataTablePaginationProps<T>) {
   return (
     <div className="flex items-center justify-end space-x-2 border-t border-slate-855 p-4 pb-0">
       <Button
         variant="outline"
         size="sm"
-        onClick={() => props.table.previousPage()}
-        disabled={!props.table.getCanPreviousPage()}
+        onClick={() => table.previousPage()}
+        disabled={!table.getCanPreviousPage()}
         className="border border-indigo-700 bg-indigo-600 text-white hover:border-indigo-600 hover:bg-indigo-500 hover:text-white"
       >
         Previous
@@ -21,8 +21,8 @@ export function DataTablePagination<T>(props: DataTablePaginationProps<T>) {
       <Button
         variant="outline"
         size="sm"
-        onClick={() => props.table.nextPage()}
-        disabled={!props.table.getCanNextPage()}
+        onClick={() => table.nextPage()}
+        disabled={!table.getCanNextPage()}
         className="border border-indigo-700 bg-indigo-600 text-white hover:border-indigo-600 hover:bg-indigo-500 hover:text-white"
       >
         Next

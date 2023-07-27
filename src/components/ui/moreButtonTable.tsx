@@ -15,7 +15,7 @@ export interface MoreButtonTableProps {
   children: ReactNode
 }
 
-export function MoreButtonTable(props: MoreButtonTableProps) {
+export function MoreButtonTable({ data, children }: MoreButtonTableProps) {
   return (
     <div className="flex items-center justify-center">
       <DropdownMenu>
@@ -25,7 +25,7 @@ export function MoreButtonTable(props: MoreButtonTableProps) {
             className="h-8 w-8 border border-transparent p-0 hover:border-slate-800 hover:bg-slate-750 hover:text-gray-100"
           >
             <span className="sr-only">Open menu</span>
-            {props.children}
+            {children}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -33,15 +33,13 @@ export function MoreButtonTable(props: MoreButtonTableProps) {
           className="border-slate-850 bg-slate-855"
         >
           <DropdownMenuLabel className="text-gray-300">
-            {props.data.menuTitle || 'Actions'}
+            {data.menuTitle || 'Actions'}
           </DropdownMenuLabel>
           <DropdownMenuItem
-            onClick={async () =>
-              await navigator.clipboard.writeText(props.data.id)
-            }
+            onClick={async () => await navigator.clipboard.writeText(data.id)}
             className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
           >
-            {props.data.desc}
+            {data.desc}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
