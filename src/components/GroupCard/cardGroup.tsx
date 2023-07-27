@@ -97,8 +97,8 @@ export function CardGroup({
           <div className="flex items-center gap-2">
             <SignOut size={24} weight="fill" className="text-indigo-600" />
             <span className="font-menu text-sm font-medium text-slate-500">
-              {data.black_list.length
-                ? `${data.black_list.length} blacklisted participants`
+              {data.blackList.length
+                ? `${data.blackList.length} blacklisted participants`
                 : 'No blacklisted participants'}
             </span>
           </div>
