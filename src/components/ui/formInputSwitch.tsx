@@ -6,16 +6,16 @@ import { FormField, FormItem, FormControl } from './form'
 
 type FormProps = UseFormReturn<
   {
-    bemVindo: boolean
-    groupName: string
-    antiLink: boolean
-    antiPorn: boolean
-    oneGroup: boolean
-    autoSticker: boolean
-    autoInviteLink: boolean
+    group_name: string
+    bem_vindo: boolean
+    anti_link: boolean
+    anti_porn: boolean
+    one_group: boolean
+    auto_sticker: boolean
+    auto_invite_link: boolean
     antiTrava: {
       status: boolean
-      maxCharacters: number
+      max_characters: number
     }
   },
   any,
@@ -23,15 +23,15 @@ type FormProps = UseFormReturn<
 >
 
 type FormRegistersProps =
-  | 'bemVindo'
-  | 'groupName'
-  | 'antiLink'
-  | 'antiPorn'
-  | 'oneGroup'
-  | 'autoSticker'
-  | 'autoInviteLink'
+  | 'bem_vindo'
+  | 'group_name'
+  | 'anti_link'
+  | 'anti_porn'
+  | 'one_group'
+  | 'auto_sticker'
+  | 'auto_invite_link'
   | 'antiTrava'
-  | 'antiTrava.maxCharacters'
+  | 'antiTrava.max_characters'
   | 'antiTrava.status'
 
 export interface FormInputSwitchProps {

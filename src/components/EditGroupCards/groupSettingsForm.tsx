@@ -1,33 +1,37 @@
 'use client'
 
-import React from 'react'
+import React, { useTransition } from 'react'
+
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+
 import { Button, Form, Input, Label } from '../ui'
 import { FormInputSwitch } from '../ui/formInputSwitch'
 
+import { GroupRequestData, updateGroup } from '@/api/actions/updateGroup'
+
 const updateFormSchema = z.object({
-  groupName: z
+  group_name: z
     .string()
     .nonempty({ message: 'Group name cannot be empty!' })
     .max(100),
-  bemVindo: z.boolean(),
-  antiLink: z.boolean(),
-  antiPorn: z.boolean(),
-  oneGroup: z.boolean(),
-  autoSticker: z.boolean(),
-  autoInviteLink: z.boolean(),
+  bem_vindo: z.boolean(),
+  anti_link: z.boolean(),
+  anti_porn: z.boolean(),
+  one_group: z.boolean(),
+  auto_sticker: z.boolean(),
+  auto_invite_link: z.boolean(),
   antiTrava: z.object({
     status: z.boolean(),
-    maxCharacters: z
+    max_characters: z
       .number({ invalid_type_error: 'Only number is allowed!' })
       .min(1, { message: 'The minimum number is 1.' })
       .max(5000, { message: 'The maximum number is 5000.' }),
   }),
 })
 
-type updateFormProps = z.infer<typeof updateFormSchema>
+export type updateFormProps = z.infer<typeof updateFormSchema>
 
 export interface GroupSettingsFormProps {
   data: GroupsProps
@@ -38,20 +42,21 @@ export function GroupSettingsForm({
   data,
   imageData = '',
 }: GroupSettingsFormProps) {
+  const [isSubmitting, startTransition] = useTransition()
   const form = useForm<updateFormProps>({
     resolver: zodResolver(updateFormSchema),
     defaultValues: {
-      groupName: data.group_info.name,
-      bemVindo: data.bem_vindo,
-      antiLink: data.anti_link,
-      antiPorn: data.anti_porn,
+      group_name: data.group_info.name,
+      bem_vindo: data.bem_vindo,
+      anti_link: data.anti_link,
+      anti_porn: data.anti_porn,
       antiTrava: {
         status: data.anti_trava.status,
-        maxCharacters: data.anti_trava.max_characters,
+        max_characters: data.anti_trava.max_characters,
       },
-      autoInviteLink: data.auto_invite_link,
-      autoSticker: data.auto_sticker,
-      oneGroup: data.one_group,
+      auto_invite_link: data.auto_invite_link,
+      auto_sticker: data.auto_sticker,
+      one_group: data.one_group,
     },
   })
 
@@ -59,12 +64,31 @@ export function GroupSettingsForm({
     formState: { errors },
   } = form
 
-  function onFormSubmit(data: updateFormProps) {
-    const formattedDataForm = imageData
-      ? { ...data, avatarImage: imageData }
-      : data
+  function onFormSubmit(formData: updateFormProps) {
+    const formattedData: GroupRequestData = {
+      id: data.id,
+      group_name:
+        formData.group_name !== data.group_info.name
+          ? formData.group_name
+          : undefined,
+      g_id: data.g_id,
+      bem_vindo: formData.bem_vindo,
+      anti_link: formData.anti_link,
+      anti_porn: formData.anti_porn,
+      one_group: formData.one_group,
+      auto_sticker: formData.auto_sticker,
+      auto_invite_link: formData.auto_invite_link,
+      antiTrava: {
+        status: formData.antiTrava.status,
+        max_characters: formData.antiTrava.max_characters,
+      },
+      blackList: data.blackList,
+      avatar_image: imageData || undefined,
+    }
 
-    console.log(formattedDataForm)
+    startTransition(() => {
+      updateGroup(formattedData)
+    })
   }
 
   return (
@@ -83,15 +107,15 @@ export function GroupSettingsForm({
                 type="text"
                 placeholder="Group name"
                 className={`h-11 border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
-                  errors.groupName
+                  errors.group_name
                     ? 'focus-visible:border-red-500'
                     : 'focus-visible:border-indigo-600'
                 } focus-visible:ring-0 focus-visible:ring-offset-0`}
-                {...form.register('groupName')}
+                {...form.register('group_name')}
               />
-              {errors.groupName && errors.groupName.message && (
+              {errors.group_name && errors.group_name.message && (
                 <span className="absolute py-1 text-xs text-red-500">
-                  {errors.groupName.message}
+                  {errors.group_name.message}
                 </span>
               )}
             </div>
@@ -110,11 +134,11 @@ export function GroupSettingsForm({
                   type="text"
                   placeholder="Max characters"
                   className={`h-11 w-full border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
-                    errors.antiTrava?.maxCharacters
+                    errors.antiTrava?.max_characters
                       ? 'focus-visible:border-red-500'
                       : 'focus-visible:border-indigo-600'
                   } focus-visible:ring-0 focus-visible:ring-offset-0`}
-                  {...form.register('antiTrava.maxCharacters', {
+                  {...form.register('antiTrava.max_characters', {
                     valueAsNumber: true,
                   })}
                 />
@@ -125,10 +149,10 @@ export function GroupSettingsForm({
                   hasInput
                 />
               </div>
-              {errors.antiTrava?.maxCharacters &&
-                errors.antiTrava?.maxCharacters.message && (
+              {errors.antiTrava?.max_characters &&
+                errors.antiTrava?.max_characters.message && (
                   <span className="absolute py-1 text-xs text-red-500">
-                    {errors.antiTrava?.maxCharacters.message}
+                    {errors.antiTrava?.max_characters.message}
                   </span>
                 )}
             </div>
@@ -137,36 +161,37 @@ export function GroupSettingsForm({
           <FormInputSwitch
             title="Welcome"
             form={form}
-            formRegister="bemVindo"
+            formRegister="bem_vindo"
           />
 
           <FormInputSwitch
             title="Anti link"
             form={form}
-            formRegister="antiLink"
+            formRegister="anti_link"
           />
 
           <FormInputSwitch
             title="Anti malicious"
             form={form}
-            formRegister="antiPorn"
+            formRegister="anti_porn"
           />
 
           <FormInputSwitch
             title="Auto invite link"
             form={form}
-            formRegister="autoInviteLink"
+            formRegister="auto_invite_link"
           />
 
           <FormInputSwitch
             title="Auto sticker"
             form={form}
-            formRegister="autoSticker"
+            formRegister="auto_sticker"
           />
 
           <Button
             type="submit"
             className="w-fit bg-indigo-600 text-sm font-semibold text-white hover:bg-indigo-500 hover:text-white md:ml-52"
+            disabled={isSubmitting}
           >
             Save Changes
           </Button>
