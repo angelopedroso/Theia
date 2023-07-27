@@ -2,7 +2,13 @@ import { getDBData } from '@/api/getDBData'
 import { CardGroupsPage } from '@/components/GroupCard/cardGroupsPage'
 
 import { Header } from '@/components/ui/header'
+import { Metadata } from 'next'
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: 'Active groups',
+  description: 'Theia actived groups',
+}
 
 export default async function Groups() {
   const data: GroupsProps[] = await getDBData({
