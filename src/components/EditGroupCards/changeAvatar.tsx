@@ -33,7 +33,11 @@ export function ChangeAvatar({
         reader.readAsDataURL(e.target.files.item(0) as Blob)
 
         reader.onloadend = () => {
-          imageUrlFormReturn(reader.result as string)
+          const wordCut = 'base64,'
+          const formattedBase64 = String(reader.result).indexOf(wordCut)
+          imageUrlFormReturn(
+            String(reader.result).substring(formattedBase64 + wordCut.length),
+          )
         }
       }
     }
@@ -54,7 +58,7 @@ export function ChangeAvatar({
         </Avatar>
         <Input
           type="file"
-          accept="image/jpeg, image/png"
+          accept="image/png"
           className="hidden"
           ref={inputImageRef}
           onChangeCapture={handleAvatarChange}
