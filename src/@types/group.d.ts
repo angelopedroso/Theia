@@ -25,6 +25,6 @@ type GroupsProps = {
     status: boolean
     max_characters: number
   }
-  black_list: Participant[]
+  blackList: Participant[]
   participants: Participant[]
 }
