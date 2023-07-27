@@ -2,9 +2,14 @@ import { getDBData } from '@/api/getDBData'
 import { EditGroupSettings } from '@/components/EditGroupCards/editGroupSettings'
 import { Header } from '@/components/ui/header'
 import React from 'react'
-
 export interface GroupPageIdProps {
-  searchParams: { id: string }
+  searchParams: { id: string; name: string }
+}
+
+export async function generateMetadata({ searchParams }: GroupPageIdProps) {
+  return {
+    title: searchParams.name,
+  }
 }
 
 export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
