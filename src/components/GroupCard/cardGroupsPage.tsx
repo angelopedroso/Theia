@@ -50,7 +50,7 @@ export function CardGroupsPage({ data }: CardGroupsPageProps) {
                       .toLowerCase()
                       .replace(/[^\w\s-]/g, '')
                       .replace(/ /g, '-')}`,
-                    query: { id: data.id },
+                    query: { id: data.id, name: data.group_info.name },
                   }}
                 >
                   <Button
