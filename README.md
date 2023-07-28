@@ -1,4 +1,4 @@
-# Theia - (Hiperion extension)
+# Theia - (Hiperion's extension)
 
 ### Under Development
 ---
