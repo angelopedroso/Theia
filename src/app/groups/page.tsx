@@ -1,5 +1,5 @@
 import { getDBData } from '@/api/getDBData'
-import { CardGroupsPage } from '@/components/GroupCard/cardGroupsPage'
+import { CardGroupListCarousel } from '@/components/GroupCard'
 
 import { Header } from '@/components/ui/header'
 import { Metadata } from 'next'
@@ -17,14 +17,10 @@ export default async function Groups() {
   })
 
   return (
-    <div className="flex h-full flex-col p-8">
+    <div className="flex h-full flex-col py-8 pl-8 md:p-8">
       <Header title="Groups" subtitle="List of all active groups" />
-      <main className="flex h-full items-start px-16">
-        <div className="grid w-full grid-cols-2 place-items-center gap-8 lg:grid-cols-3">
-          {data.map((group) => {
-            return <CardGroupsPage key={group.id} data={group} />
-          })}
-        </div>
+      <main className="flex h-full items-center justify-center sm:px-8 md:px-16">
+        <CardGroupListCarousel data={data} />
       </main>
     </div>
   )
