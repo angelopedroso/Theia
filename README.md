@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Theia - (Hiperion frontend)
 
-## Getting Started
+### Overview
 
-First, run the development server:
+Theia is a web application built with Next.js 13 that serves as an extension to the Hiperion-Bot, enabling additional functionalities and a user-friendly dashboard for managing WhatsApp groups. The application facilitates group administration, including banning participants, updating group names and photos, and adjusting bot settings within the groups. It also provides a dashboard with insights into group administrators, the bot's active groups, and a graph displaying command usage per group. The chart utilizes Recharts, a charting library for React.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Requirements
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To use Theia, ensure you have the following prerequisites installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js 18 or higher
+- Running instance of Hiperion-Bot
+### Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone this repository to your local environment.
+2. Install the required dependencies using Yarn:
 
-## Learn More
+   ```shell
+   yarn install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set the `API_HOST_URL` environment variable.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the Hiperion-Bot as described in its README.md.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Start the Theia application using the following command:
 
-## Deploy on Vercel
+   ```shell
+   yarn dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Dependencies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The Theia application has the following main dependencies:
+
+- Next.js 13
+- Tailwind CSS
+- React Hook Form
+- Shadcn (Re-usable components built using Radix UI and Tailwind CSS)
+- Recharts
+
+### Features
+
+The Theia application extends the capabilities of the Hiperion-Bot with the following features:
+
+- Ban one or multiple participants from a group
+- Update group name and photo
+- Adjust bot settings within groups
+- Dashboard displaying:
+  - Group administrators
+  - Active groups with the bot
+  - Graph showing command usage per group
+
+### Contribution
+
+We welcome contributions to improve and enhance Theia. To contribute, please follow these steps:
+
+1. Fork this repository.
+2. Create a branch for your contribution: `git checkout -b your-branch`.
+3. Implement the desired changes and include relevant documentation.
+4. Commit your changes: `git commit -m "Your message"`.
+5. Push your changes: `git push origin your-branch`.
+6. Open a pull request in this repository.
+
+We appreciate your contributions in advance!
+
+### License
+
+The Theia application is licensed under the Apache 2.0 License. For more details, please see the [LICENSE](./LICENSE) file.
+
+---
+
+Thank you for using Theia, the WhatsApp Bot Extension for Hiperion-Bot! If you encounter any issues or have questions, please feel free to reach out.
