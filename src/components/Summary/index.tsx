@@ -1,26 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Card } from './components/Card'
 import { Pulse, SignOut, UserList, UsersThree } from '@phosphor-icons/react'
 import { DataTotalSummaryProps } from '@/@types/totalSummary'
+import { useCarousel } from '@/hooks/useCarousel'
 
 interface SummaryProps {
   data: DataTotalSummaryProps
 }
 
 export function Summary({ data }: SummaryProps) {
-  const carouselRef = useRef<HTMLElement>(null)
-  const [carouselWidth, setCarouselWidth] = useState(0)
-
-  useEffect(() => {
-    if (!carouselRef.current) return
-
-    setCarouselWidth(
-      carouselRef.current?.scrollWidth - carouselRef.current?.offsetWidth,
-    )
-  }, [])
+  const { carouselRef, carouselWidth } = useCarousel()
 
   return (
     <motion.section
