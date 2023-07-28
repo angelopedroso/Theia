@@ -2,14 +2,14 @@
 
 ### Overview
 
-Theia is a web application built with Next.js 13 that serves as an extension to the Hiperion-Bot, enabling additional functionalities and a user-friendly dashboard for managing WhatsApp groups. The application facilitates group administration, including banning participants, updating group names and photos, and adjusting bot settings within the groups. It also provides a dashboard with insights into group administrators, the bot's active groups, and a graph displaying command usage per group. The chart utilizes Recharts, a charting library for React.
+Theia is a web application built with Next.js 13 that serves as an extension to the [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot), enabling additional functionalities and a user-friendly dashboard for managing WhatsApp groups. The application facilitates group administration, including banning participants, updating group names and photos, and adjusting bot settings within the groups. It also provides a dashboard with insights into group administrators, the bot's active groups, and a graph displaying command usage per group. The chart utilizes Recharts, a charting library for React.
 
 ### Requirements
 
 To use Theia, ensure you have the following prerequisites installed:
 
 - Node.js 18 or higher
-- Running instance of Hiperion-Bot
+- Running instance of [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot)
 ### Configuration
 
 1. Clone this repository to your local environment.
@@ -21,7 +21,7 @@ To use Theia, ensure you have the following prerequisites installed:
 
 3. Set the `API_HOST_URL` environment variable.
 
-4. Run the Hiperion-Bot as described in its README.md.
+4. Run the [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot) as described in its README.md.
 
 5. Start the Theia application using the following command:
 
@@ -41,7 +41,7 @@ The Theia application has the following main dependencies:
 
 ### Features
 
-The Theia application extends the capabilities of the Hiperion-Bot with the following features:
+The Theia application extends the capabilities of the [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot) with the following features:
 
 - Ban one or multiple participants from a group
 - Update group name and photo
@@ -70,4 +70,4 @@ The Theia application is licensed under the Apache 2.0 License. For more details
 
 ---
 
-Thank you for using Theia, the WhatsApp Bot Extension for Hiperion-Bot! If you encounter any issues or have questions, please feel free to reach out.
+Thank you for using Theia, the WhatsApp Bot Extension for [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot)! If you encounter any issues or have questions, please feel free to reach out.
