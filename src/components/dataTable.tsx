@@ -12,6 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { DataTablePagination } from '@/components/ui/tableButton'
+import { getWindowWidth } from '@/utils/windowWidth'
 
 import {
   ColumnDef,
@@ -65,7 +66,7 @@ export function DataTable<TData, TValue>({
   })
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth > 480)
+    setWindowWidth(getWindowWidth(480))
     table.setPageSize(windowWidth ? pageSize : 5)
   }, [pageSize, table, windowWidth])
 
