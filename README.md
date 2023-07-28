@@ -1,4 +1,4 @@
-# Theia - (Hiperion frontend)
+# Theia - (Hiperion extension)
 
 ### Overview
 
