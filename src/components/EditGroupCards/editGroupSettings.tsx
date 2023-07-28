@@ -25,6 +25,7 @@ export function EditGroupSettings({ data }: EditGroupSettingsProps) {
         </div>
         <ChangeAvatar
           imageUrl={data.group_info.image_url}
+          isAdmin={data.group_info.isAdmin}
           imageUrlFormReturn={hangleImageForm}
         />
       </div>

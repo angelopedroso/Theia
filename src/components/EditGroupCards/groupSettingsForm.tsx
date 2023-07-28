@@ -112,7 +112,14 @@ export function GroupSettingsForm({
                     : 'focus-visible:border-indigo-600'
                 } focus-visible:ring-0 focus-visible:ring-offset-0`}
                 {...form.register('group_name')}
+                disabled={!data.group_info.isAdmin}
               />
+              {!data.group_info.isAdmin && (
+                <span className="absolute py-1 text-xs text-yellow-500">
+                  The group title can only be changed if the bot is an admin of
+                  the group.
+                </span>
+              )}
               {errors.group_name && errors.group_name.message && (
                 <span className="absolute py-1 text-xs text-red-500">
                   {errors.group_name.message}

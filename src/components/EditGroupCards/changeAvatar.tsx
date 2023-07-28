@@ -10,11 +10,13 @@ import {
 } from '@/components/ui'
 
 export interface ChangeAvatarProps {
+  isAdmin: boolean
   imageUrl?: string
   imageUrlFormReturn: (url: string) => void
 }
 
 export function ChangeAvatar({
+  isAdmin = false,
   imageUrl = '',
   imageUrlFormReturn,
 }: ChangeAvatarProps) {
@@ -63,13 +65,15 @@ export function ChangeAvatar({
           ref={inputImageRef}
           onChangeCapture={handleAvatarChange}
         />
-        <Button
-          variant={'outline'}
-          onClick={() => inputImageRef.current?.click()}
-          className="border-slate-700 bg-transparent text-sm font-medium text-indigo-600 shadow-md hover:bg-indigo-600 hover:text-white"
-        >
-          Change
-        </Button>
+        {isAdmin && (
+          <Button
+            variant={'outline'}
+            onClick={() => inputImageRef.current?.click()}
+            className="border-slate-700 bg-transparent text-sm font-medium text-indigo-600 shadow-md hover:bg-indigo-600 hover:text-white"
+          >
+            Change
+          </Button>
+        )}
       </div>
     </div>
   )

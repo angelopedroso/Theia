@@ -12,6 +12,7 @@ type GroupsProps = {
     name: string
     inviteCode: string
     image_url?: string
+    isAdmin: boolean
   }
   g_id: string
   bem_vindo: boolean
