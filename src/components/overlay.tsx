@@ -9,10 +9,10 @@ export interface OverlayProps {
 export function Overlay({ close, children }: OverlayProps) {
   return (
     <motion.div
-      className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black/60"
+      className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 flex items-center justify-center"
       onClick={close}
       variants={{
-        open: { backgroundColor: 'rgba(0,0,0,0.6)' },
+        open: { backgroundColor: 'rgba(0,0,0,0.9)' },
         closed: { backgroundColor: 'rgba(0,0,0,0)' },
       }}
       initial="closed"
