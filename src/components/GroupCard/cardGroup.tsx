@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useContext } from 'react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { DefaultGroupIcon } from '../groupIcon'
@@ -14,20 +14,17 @@ import {
   CardContent,
   CardMotion,
 } from '../ui/card'
+import { modalContext } from '@/contexts/modalContext'
 
 type CardGroupProps = {
   data: GroupsProps
   children?: ReactNode
-  toggle?: () => void
   isModal?: boolean
 }
 
-export function CardGroup({
-  isModal = false,
-  data,
-  toggle,
-  children,
-}: CardGroupProps) {
+export function CardGroup({ isModal = false, data, children }: CardGroupProps) {
+  const { toggleModal } = useContext(modalContext)
+
   const groupSettings: CardSettingsProps[] = [
     {
       name: 'Welcome',
@@ -62,7 +59,7 @@ export function CardGroup({
       } select-none border-slate-855 bg-slate-850 lg:min-h-full ${
         isModal && 'relative h-auto'
       }`}
-      onClick={toggle}
+      onClick={() => toggleModal(data.group_info.name)}
       whileHover={{ scale: !isModal ? 1.05 : 1.0 }}
     >
       <CardHeader className="flex items-center justify-center">
