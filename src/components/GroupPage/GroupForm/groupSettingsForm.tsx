@@ -6,8 +6,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
-import { Button, Form, Input, Label } from '../ui'
-import { FormInputSwitch } from '../ui/formInputSwitch'
+import { Button, Form, Input, Label, FormInputSwitch } from '@/components/ui'
 
 import { GroupRequestData, updateGroup } from '@/api/actions/updateGroup'
 

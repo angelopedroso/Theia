@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
-import { DefaultGroupIcon } from '../groupIcon'
+import { DefaultGroupIcon } from '../../groupIcon'
 import {
   Avatar,
   AvatarFallback,

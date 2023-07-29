@@ -1,5 +1,6 @@
 import { getDBData } from '@/api/getDBData'
-import { EditGroupSettings } from '@/components/EditGroupCards/editGroupSettings'
+import { EditGroupSettings } from '@/components/GroupPage/GroupForm/editGroupSettings'
+import { GroupUserTable } from '@/components/GroupPage/GroupUserTable'
 import { Header } from '@/components/ui/header'
 import React from 'react'
 export interface GroupPageIdProps {
@@ -17,6 +18,7 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
 
   const data: GroupsProps = await getDBData({
     uri: `groups/${groupId}`,
+    revalidateTimeInSeconds: 60 * 2,
   })
 
   return (
@@ -24,8 +26,9 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
       <div className="mb-6 border-b border-slate-600 pb-6">
         <Header title={data.group_info.name} className="mb-0" />
       </div>
-      <main className="flex justify-end">
+      <main className="flex flex-col items-end gap-8">
         <EditGroupSettings data={data} />
+        <GroupUserTable data={data} />
       </main>
     </div>
   )
