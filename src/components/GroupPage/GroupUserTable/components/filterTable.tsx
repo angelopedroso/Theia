@@ -52,10 +52,10 @@ export function FilterBy<T>({
   }
 
   return (
-    <div className="flex w-full items-center justify-between">
+    <div className="flex w-full items-center justify-between gap-2 sm:gap-0">
       <div className="relative flex w-fit items-center rounded-md border border-slate-855 pr-3 focus-within:border-indigo-600">
         <Input
-          placeholder={`Filter...`}
+          placeholder={`Filter ${filter === 'name' ? 'names' : 'phones'}...`}
           value={(table.getColumn(filter)?.getFilterValue() as string) ?? ''}
           onChange={(event) => handleChangeSearch(event)}
           className="max-w-sm border-none bg-transparent text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -98,7 +98,9 @@ export function FilterBy<T>({
         </DropdownMenu>
       </div>
       <div>
-        <AlertDialogComp onRemove={handleRemoveFilter} />
+        {table.getFilteredSelectedRowModel().rows.length > 0 && (
+          <AlertDialogComp onRemove={handleRemoveFilter} />
+        )}
       </div>
     </div>
   )
