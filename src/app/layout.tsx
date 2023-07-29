@@ -6,6 +6,7 @@ import './globals.css'
 
 // eslint-disable-next-line camelcase
 import { Inter, DM_Sans, Open_Sans } from 'next/font/google'
+import { FilterTableProvider } from '@/contexts/filterContext'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,7 +42,9 @@ export default function RootLayout({
         className={`${inter.className} scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 scrollbar-corner-slate-800 scrollbar-thumb-rounded hover:scrollbar-thumb-slate-500`}
       >
         <Providers>
-          <SideMenu>{children}</SideMenu>
+          <FilterTableProvider>
+            <SideMenu>{children}</SideMenu>
+          </FilterTableProvider>
         </Providers>
       </body>
     </html>
