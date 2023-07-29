@@ -16,6 +16,7 @@ export default async function ActivityLogPage() {
           columns={columns}
           pageSize={15}
           tableHeight="min-h-[41rem]"
+          filterTable
         />
       </main>
     </div>
