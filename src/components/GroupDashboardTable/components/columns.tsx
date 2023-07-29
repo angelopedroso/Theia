@@ -16,7 +16,7 @@ import { DefaultUserIcon } from '@/components/userIcon'
 export type Participant = { name: string; image_url: string | undefined }
 export type GroupInfo = {
   inviteCode?: string
-  image_url: string
+  image_url?: string
   name: string
 }
 
