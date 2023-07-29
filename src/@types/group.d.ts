@@ -1,7 +1,7 @@
 interface Participant {
   id: string
   p_id: string
-  image_url: string | null
+  image_url?: string
   name: string
 }
 
