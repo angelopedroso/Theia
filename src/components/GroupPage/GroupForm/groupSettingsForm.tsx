@@ -7,10 +7,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 import { Button, Form, Input, Label, FormInputSwitch } from '@/components/ui'
+import { AlertModal } from '@/components/alertModal'
 
 import { GroupRequestData, updateGroup } from '@/api/actions/updateGroup'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { CheckFat } from '@phosphor-icons/react'
 
 const updateFormSchema = z.object({
   group_name: z
@@ -219,13 +218,7 @@ export function GroupSettingsForm({
         </form>
       </Form>
       {submitted && !isSubmitting && isSubmitSuccessful && (
-        <Alert className="fixed right-2 top-2 z-50 w-fit border-slate-875 bg-slate-855">
-          <CheckFat weight="fill" className="h-4 w-4" color="#4ade80" />
-          <AlertTitle className="text-green-400">Successfully!</AlertTitle>
-          <AlertDescription className="text-white">
-            Group settings has been updated!
-          </AlertDescription>
-        </Alert>
+        <AlertModal desc="Group settings has been updated!" />
       )}
     </>
   )
