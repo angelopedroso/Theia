@@ -9,12 +9,16 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { Table } from '@tanstack/react-table'
 import { filterTableContext } from '@/contexts/filterContext'
 import { Button, Input } from '@/components/ui'
 import { AlertDialogComp } from '@/components/alertDialog'
+import { AlertModal } from '@/components/alertModal'
+
+import { modalContext } from '@/contexts/modalContext'
+
 import { removeParticipant } from '@/api/actions/updateGroup'
 
 export interface FilterByProps<T> {
@@ -31,6 +35,7 @@ export function FilterBy<T>({
   setFilterBy,
 }: FilterByProps<T>) {
   const { setSearch } = useContext(filterTableContext)
+  const { handleAlertModal, alert } = useContext(modalContext)
 
   function handleChangeSearch(event: React.ChangeEvent<HTMLInputElement>) {
     table.getColumn(filter)?.setFilterValue(event.target.value)
@@ -48,8 +53,18 @@ export function FilterBy<T>({
 
     await removeParticipant({ users: formattedUserId, group })
 
+    handleAlertModal(true)
+
     table.resetRowSelection()
   }
+
+  useEffect(() => {
+    if (alert) {
+      setTimeout(() => {
+        handleAlertModal(false)
+      }, 2000)
+    }
+  }, [alert, handleAlertModal])
 
   return (
     <div className="flex w-full items-center justify-between gap-2 sm:gap-0">
@@ -102,6 +117,7 @@ export function FilterBy<T>({
           <AlertDialogComp onRemove={handleRemoveFilter} />
         )}
       </div>
+      {alert && <AlertModal desc="User(s) has been removed from group!" />}
     </div>
   )
 }
