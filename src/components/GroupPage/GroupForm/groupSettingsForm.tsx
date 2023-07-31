@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,6 +9,8 @@ import { z } from 'zod'
 import { Button, Form, Input, Label, FormInputSwitch } from '@/components/ui'
 
 import { GroupRequestData, updateGroup } from '@/api/actions/updateGroup'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { CheckFat } from '@phosphor-icons/react'
 
 const updateFormSchema = z.object({
   group_name: z
@@ -42,6 +44,7 @@ export function GroupSettingsForm({
   imageData = '',
 }: GroupSettingsFormProps) {
   const [isSubmitting, startTransition] = useTransition()
+  const [submitted, setSubmitted] = useState(true)
   const form = useForm<updateFormProps>({
     resolver: zodResolver(updateFormSchema),
     defaultValues: {
@@ -60,8 +63,16 @@ export function GroupSettingsForm({
   })
 
   const {
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = form
+
+  useEffect(() => {
+    if (isSubmitSuccessful && !isSubmitting) {
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 2000)
+    }
+  }, [isSubmitSuccessful, isSubmitting])
 
   function onFormSubmit(formData: updateFormProps) {
     const formattedData: GroupRequestData = {
@@ -88,121 +99,134 @@ export function GroupSettingsForm({
     startTransition(() => {
       updateGroup(formattedData)
     })
+
+    setSubmitted(true)
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onFormSubmit)}>
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-col md:flex-row md:items-center">
-            <div className="w-auto md:w-52">
-              <Label className="whitespace w-auto text-base leading-6 text-slate-300">
-                Group name
-              </Label>
-            </div>
+    <>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onFormSubmit)}>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-auto md:w-52">
+                <Label className="whitespace w-auto text-base leading-6 text-slate-300">
+                  Group name
+                </Label>
+              </div>
 
-            <div className="relative flex-1 pt-1 md:pt-0">
-              <Input
-                type="text"
-                placeholder="Group name"
-                className={`h-11 border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
-                  errors.group_name
-                    ? 'focus-visible:border-red-500'
-                    : 'focus-visible:border-indigo-600'
-                } focus-visible:ring-0 focus-visible:ring-offset-0`}
-                {...form.register('group_name')}
-                disabled={!data.group_info.isAdmin}
-              />
-              {!data.group_info.isAdmin && (
-                <span className="absolute py-1 text-xs text-yellow-500">
-                  The group title can only be changed if the bot is an admin of
-                  the group.
-                </span>
-              )}
-              {errors.group_name && errors.group_name.message && (
-                <span className="absolute py-1 text-xs text-red-500">
-                  {errors.group_name.message}
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-center">
-            <div className="w-auto md:w-52 ">
-              <Label className="whitespace w-auto text-base leading-6 text-slate-300">
-                Anti freezing
-              </Label>
-            </div>
-
-            <div className="relative flex-1 pt-1 md:pt-0">
-              <div className="flex gap-4">
+              <div className="relative flex-1 pt-1 md:pt-0">
                 <Input
                   type="text"
-                  placeholder="Max characters"
-                  className={`h-11 w-full border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
-                    errors.antiTrava?.max_characters
+                  placeholder="Group name"
+                  className={`h-11 border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
+                    errors.group_name
                       ? 'focus-visible:border-red-500'
                       : 'focus-visible:border-indigo-600'
                   } focus-visible:ring-0 focus-visible:ring-offset-0`}
-                  {...form.register('antiTrava.max_characters', {
-                    valueAsNumber: true,
-                  })}
+                  {...form.register('group_name')}
+                  disabled={!data.group_info.isAdmin}
                 />
-
-                <FormInputSwitch
-                  form={form}
-                  formRegister="antiTrava.status"
-                  hasInput
-                />
-              </div>
-              {errors.antiTrava?.max_characters &&
-                errors.antiTrava?.max_characters.message && (
-                  <span className="absolute py-1 text-xs text-red-500">
-                    {errors.antiTrava?.max_characters.message}
+                {!data.group_info.isAdmin && (
+                  <span className="absolute py-1 text-xs text-yellow-500">
+                    The group title can only be changed if the bot is an admin
+                    of the group.
                   </span>
                 )}
+                {errors.group_name && errors.group_name.message && (
+                  <span className="absolute py-1 text-xs text-red-500">
+                    {errors.group_name.message}
+                  </span>
+                )}
+              </div>
             </div>
+
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-auto md:w-52 ">
+                <Label className="whitespace w-auto text-base leading-6 text-slate-300">
+                  Anti freezing
+                </Label>
+              </div>
+
+              <div className="relative flex-1 pt-1 md:pt-0">
+                <div className="flex gap-4">
+                  <Input
+                    type="text"
+                    placeholder="Max characters"
+                    className={`h-11 w-full border border-slate-750 bg-transparent font-menu text-sm text-slate-500 ${
+                      errors.antiTrava?.max_characters
+                        ? 'focus-visible:border-red-500'
+                        : 'focus-visible:border-indigo-600'
+                    } focus-visible:ring-0 focus-visible:ring-offset-0`}
+                    {...form.register('antiTrava.max_characters', {
+                      valueAsNumber: true,
+                    })}
+                  />
+
+                  <FormInputSwitch
+                    form={form}
+                    formRegister="antiTrava.status"
+                    hasInput
+                  />
+                </div>
+                {errors.antiTrava?.max_characters &&
+                  errors.antiTrava?.max_characters.message && (
+                    <span className="absolute py-1 text-xs text-red-500">
+                      {errors.antiTrava?.max_characters.message}
+                    </span>
+                  )}
+              </div>
+            </div>
+
+            <FormInputSwitch
+              title="Welcome"
+              form={form}
+              formRegister="bem_vindo"
+            />
+
+            <FormInputSwitch
+              title="Anti link"
+              form={form}
+              formRegister="anti_link"
+            />
+
+            <FormInputSwitch
+              title="Anti malicious"
+              form={form}
+              formRegister="anti_porn"
+            />
+
+            <FormInputSwitch
+              title="Auto invite link"
+              form={form}
+              formRegister="auto_invite_link"
+            />
+
+            <FormInputSwitch
+              title="Auto sticker"
+              form={form}
+              formRegister="auto_sticker"
+            />
+
+            <Button
+              type="submit"
+              className="w-fit bg-indigo-600 text-sm font-semibold text-white hover:bg-indigo-500 hover:text-white md:ml-52"
+              disabled={isSubmitting}
+            >
+              Save Changes
+            </Button>
           </div>
-
-          <FormInputSwitch
-            title="Welcome"
-            form={form}
-            formRegister="bem_vindo"
-          />
-
-          <FormInputSwitch
-            title="Anti link"
-            form={form}
-            formRegister="anti_link"
-          />
-
-          <FormInputSwitch
-            title="Anti malicious"
-            form={form}
-            formRegister="anti_porn"
-          />
-
-          <FormInputSwitch
-            title="Auto invite link"
-            form={form}
-            formRegister="auto_invite_link"
-          />
-
-          <FormInputSwitch
-            title="Auto sticker"
-            form={form}
-            formRegister="auto_sticker"
-          />
-
-          <Button
-            type="submit"
-            className="w-fit bg-indigo-600 text-sm font-semibold text-white hover:bg-indigo-500 hover:text-white md:ml-52"
-            disabled={isSubmitting}
-          >
-            Save Changes
-          </Button>
-        </div>
-      </form>
-    </Form>
+        </form>
+      </Form>
+      {submitted && !isSubmitting && isSubmitSuccessful && (
+        <Alert className="fixed right-2 top-2 z-50 w-fit border-slate-875 bg-slate-855">
+          <CheckFat weight="fill" className="h-4 w-4" color="#4ade80" />
+          <AlertTitle className="text-green-400">Successfully!</AlertTitle>
+          <AlertDescription className="text-white">
+            Group settings has been updated!
+          </AlertDescription>
+        </Alert>
+      )}
+    </>
   )
 }

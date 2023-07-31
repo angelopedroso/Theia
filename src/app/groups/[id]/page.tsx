@@ -26,7 +26,7 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
       <div className="mb-6 border-b border-slate-600 pb-6">
         <Header title={data.group_info.name} className="mb-0" />
       </div>
-      <main className="flex flex-col items-end gap-8">
+      <main className="relative flex flex-col items-end gap-8">
         <EditGroupSettings data={data} />
         <GroupUserTable data={data} />
       </main>
