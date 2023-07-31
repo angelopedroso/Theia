@@ -2,6 +2,7 @@ import { getDBData } from '@/api/getDBData'
 import { EditGroupSettings } from '@/components/GroupPage/GroupForm/editGroupSettings'
 import { GroupUserTable } from '@/components/GroupPage/GroupUserTable'
 import { Header } from '@/components/ui/header'
+import { ModalProvider } from '@/contexts/modalContext'
 import React from 'react'
 export interface GroupPageIdProps {
   searchParams: { id: string; name: string }
@@ -22,14 +23,16 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
   })
 
   return (
-    <div className="flex h-full flex-col p-8">
-      <div className="mb-6 border-b border-slate-600 pb-6">
-        <Header title={data.group_info.name} className="mb-0" />
+    <ModalProvider>
+      <div className="flex h-full flex-col p-8">
+        <div className="mb-6 border-b border-slate-600 pb-6">
+          <Header title={data.group_info.name} className="mb-0" />
+        </div>
+        <main className="relative flex flex-col items-end gap-8">
+          <EditGroupSettings data={data} />
+          <GroupUserTable data={data} />
+        </main>
       </div>
-      <main className="relative flex flex-col items-end gap-8">
-        <EditGroupSettings data={data} />
-        <GroupUserTable data={data} />
-      </main>
-    </div>
+    </ModalProvider>
   )
 }
