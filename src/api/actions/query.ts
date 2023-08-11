@@ -1,6 +1,7 @@
 'use server'
 
 import { updateFormProps } from '@/components/GroupPage/GroupForm/groupSettingsForm'
+import { BotFormularyProps } from '@/components/SideMenu/components/botFormulary'
 import { api } from '@/lib/axios'
 
 export type GroupRequestData = Omit<updateFormProps, 'group_name'> & {
@@ -26,4 +27,8 @@ export async function removeParticipant(data: RemoveParticipantProps) {
     method: 'get',
     data,
   })
+}
+
+export async function updateBot(data: BotFormularyProps) {
+  await api.put('/bot', data)
 }
