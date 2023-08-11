@@ -43,12 +43,12 @@ export function LineChart({ data }: LineChartProps) {
   })
 
   return (
-    <ResponsiveContainer width="100%" height={377}>
-      <AreaChart width={500} height={400} data={formattedData}>
+    <ResponsiveContainer width="100%" height={375}>
+      <AreaChart width={500} height={375} data={formattedData}>
         <Tooltip content={<CustomTooltip />} />
         <XAxis dataKey="name" className="text-sm" hide />
         <Area
-          type="natural"
+          type="monotone"
           dataKey="count"
           stroke="#4f46e5"
           fill="#6366f1"
