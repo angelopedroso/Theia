@@ -11,6 +11,7 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 
 import { HouseLine } from '@phosphor-icons/react'
 import { OpenCloseButton, MenuButton, SubMenu } from './components'
+import { DropDownBotSettings } from './components/dropDownBotSettings'
 
 export interface SideMenuProps {
   children: ReactNode
@@ -27,7 +28,7 @@ export function SideMenu({ children }: SideMenuProps) {
   return (
     <div>
       <aside
-        className={`fixed left-0 top-0 z-10 min-h-full space-y-4 p-3 pt-2 ${
+        className={`fixed left-0 top-0 z-10 flex h-full min-h-full flex-col space-y-4 p-3 pt-2 ${
           open ? 'sm:w-64' : 'w-20'
         } ${open && 'w-40'} select-none bg-slate-900 duration-500`}
       >
@@ -47,14 +48,19 @@ export function SideMenu({ children }: SideMenuProps) {
             Theia
           </h1>
         </header>
-        <div className="space-y-6 px-2">
-          <MenuButton open={open} title="Dashboard" isDash>
-            <HouseLine className="text-slate-500" size={22} />
-          </MenuButton>
+        <div className="flex flex-1 flex-col justify-between px-2">
+          <div className="space-y-6">
+            <MenuButton open={open} title="Dashboard" isDash>
+              <HouseLine className="text-slate-500" size={22} />
+            </MenuButton>
 
-          <SubMenu elements={routes.pages} open={open} title="Pages" />
+            <SubMenu elements={routes.pages} open={open} title="Pages" />
 
-          <SubMenu elements={routes.utils} open={open} title="Utils" />
+            <SubMenu elements={routes.utils} open={open} title="Utils" />
+          </div>
+          <div className="">
+            <DropDownBotSettings open={open} />
+          </div>
         </div>
       </aside>
       <div
