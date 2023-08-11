@@ -85,11 +85,8 @@ export const column: ColumnDef<Participant>[] = [
               >
                 Copy phone number
               </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={async () => await navigator.clipboard.writeText(phone)}
-                className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
-              >
-                Remove participant from group
+              <DropdownMenuItem className="text-gray-200 focus:bg-slate-850 focus:text-gray-200">
+                <a href={`https://wa.me/${phone}`}>Send a message</a>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
