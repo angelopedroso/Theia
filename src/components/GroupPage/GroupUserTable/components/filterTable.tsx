@@ -19,7 +19,7 @@ import { AlertModal } from '@/components/alertModal'
 
 import { modalContext } from '@/contexts/modalContext'
 
-import { removeParticipant } from '@/api/actions/updateGroup'
+import { removeParticipant } from '@/api/actions/query'
 
 export interface FilterByProps<T> {
   table: Table<T>

@@ -9,7 +9,7 @@ import { z } from 'zod'
 import { Button, Form, Input, Label, FormInputSwitch } from '@/components/ui'
 import { AlertModal } from '@/components/alertModal'
 
-import { GroupRequestData, updateGroup } from '@/api/actions/updateGroup'
+import { GroupRequestData, updateGroup } from '@/api/actions/query'
 
 const updateFormSchema = z.object({
   group_name: z
