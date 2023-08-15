@@ -58,7 +58,7 @@ export function SideMenu({ children }: SideMenuProps) {
 
             <SubMenu elements={routes.utils} open={open} title="Utils" />
           </div>
-          <div className="">
+          <div>
             <DropDownBotSettings open={open} />
           </div>
         </div>

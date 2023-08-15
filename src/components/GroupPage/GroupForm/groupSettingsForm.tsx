@@ -76,6 +76,7 @@ export function GroupSettingsForm({
   function onFormSubmit(formData: updateFormProps) {
     const formattedData: GroupRequestData = {
       id: data.id,
+      old_group_name: data.group_info.name,
       group_name:
         formData.group_name !== data.group_info.name
           ? formData.group_name
