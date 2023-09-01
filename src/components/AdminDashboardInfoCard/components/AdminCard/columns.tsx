@@ -15,7 +15,7 @@ export type AdminTableProps = {
   p_id: string
   name: string
   image_url: string
-  groups: GroupInfo[]
+  group_participant: GroupInfo[]
 }
 
 export const column: ColumnDef<AdminTableProps>[] = [
@@ -42,7 +42,7 @@ export const column: ColumnDef<AdminTableProps>[] = [
       )
     },
     cell: ({ row }) => {
-      const groups = row.original.groups
+      const groups = row.original.group_participant
 
       return (
         <AvatarStack users={groups}>

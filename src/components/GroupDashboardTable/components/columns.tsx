@@ -23,19 +23,23 @@ export type GroupInfo = {
 export type GroupTableProps = {
   id: string
   g_id: string
-  group_info: GroupInfo
+  name: string
+  image_url: string
   black_list: Participant[]
   participants: Participant[]
 }
 
 export const columns: ColumnDef<GroupTableProps>[] = [
   {
-    accessorKey: 'group_info',
+    accessorKey: 'group_participant',
     header: ({ column }) => {
       return <ColumnSortingButton isGroup column={column} title="Group name" />
     },
     cell: ({ row }) => {
-      const groupInfo = row.getValue('group_info') as GroupInfo
+      const groupInfo: GroupInfo = {
+        name: row.original.name,
+        image_url: row.original.image_url,
+      }
 
       return <AvatarName data={groupInfo} isGroup />
     },
@@ -108,42 +112,6 @@ export const columns: ColumnDef<GroupTableProps>[] = [
             value={percentage}
             className="h-1 w-24 border-none bg-slate-855"
           />
-        </div>
-      )
-    },
-  },
-  {
-    accessorKey: 'invite_code',
-    header: () => (
-      <div>
-        <h3 className="whitespace-nowrap text-sm font-medium leading-normal text-gray-100">
-          Invite code
-        </h3>
-      </div>
-    ),
-    cell: ({ row }) => {
-      const groupInfo = row.getValue('group_info') as GroupInfo
-
-      if (!groupInfo?.inviteCode) {
-        return (
-          <div className="flex p-2">
-            <span className="whitespace-nowrap text-sm font-medium text-gray-300">
-              Bot isn&apos;t admin of the group
-            </span>
-          </div>
-        )
-      }
-
-      return (
-        <div className="flex w-52 p-2">
-          <a
-            href={groupInfo?.inviteCode}
-            target="_blank"
-            className="cursor-pointer break-all text-sm font-medium text-indigo-500 duration-200 hover:text-indigo-400"
-            rel="noreferrer"
-          >
-            {groupInfo?.inviteCode}
-          </a>
         </div>
       )
     },

@@ -14,11 +14,14 @@ export function Header({
 }: HeaderProps) {
   return (
     <header className={cn('mb-14 w-full', className)}>
-      <h2 className="font-menu text-xl font-bold leading-normal text-zinc-50 2xs:text-2xl">
+      <h2 className="font-header text-xl font-bold leading-normal text-zinc-50 2xs:text-2xl">
         {title}
       </h2>
       <span
-        className={`text-2xs font-medium leading-normal text-indigo-600 2xs:text-xs sm:text-sm ${className}`}
+        className={cn(
+          'text-xs font-medium leading-normal text-indigo-600 sm:text-sm',
+          className,
+        )}
       >
         {subtitle}
       </span>

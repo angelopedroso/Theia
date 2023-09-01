@@ -1,5 +1,3 @@
-import { API_HOST_URL } from '@/utils/envs'
-
 interface FetchProps {
   revalidateTimeInSeconds?: number
   uri: string
@@ -9,13 +7,18 @@ export async function getDBData({
   uri = '',
   revalidateTimeInSeconds = 60,
 }: FetchProps) {
-  const res = await fetch(`${API_HOST_URL}/${uri}`, {
-    next: {
-      revalidate: revalidateTimeInSeconds,
-    },
-  })
+  try {
+    const res = await fetch(`${process.env.API_HOST_URL}/${uri}`, {
+      next: {
+        revalidate: revalidateTimeInSeconds,
+      },
+    })
 
-  const data = await res.json()
+    const data = await res.json()
 
-  return data
+    return data
+  } catch (error) {
+    console.log(error)
+    return null
+  }
 }

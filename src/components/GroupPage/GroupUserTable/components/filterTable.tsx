@@ -43,17 +43,17 @@ export function FilterBy<T>({
   }
 
   async function handleRemoveFilter() {
-    const formattedUserId = table
-      .getFilteredSelectedRowModel()
-      .rows.map(({ original }) => {
-        const formattedId = original as { p_id: string }
+    // const formattedUserId = table
+    //   .getFilteredSelectedRowModel()
+    //   .rows.map(({ original }) => {
+    //     const formattedId = original as { p_id: string }
 
-        return `${formattedId.p_id}@c.us`
-      })
+    //     return `${formattedId.p_id}@c.us`
+    //   })
 
-    await removeParticipant({ users: formattedUserId, group })
+    // await removeParticipant({ users: formattedUserId, group })
 
-    handleAlertModal(true)
+    // handleAlertModal(true)
 
     table.resetRowSelection()
   }

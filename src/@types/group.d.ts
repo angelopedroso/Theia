@@ -7,13 +7,8 @@ interface Participant {
 
 type GroupsProps = {
   id: string
-  group_info: {
-    groupId: string
-    name: string
-    inviteCode: string
-    image_url?: string
-    isAdmin: boolean
-  }
+  name: string
+  image_url?: string
   g_id: string
   bem_vindo: boolean
   anti_link: boolean
@@ -26,6 +21,6 @@ type GroupsProps = {
     status: boolean
     max_characters: number
   }
-  blackList: Participant[]
+  black_list: Participant[]
   participants: Participant[]
 }

@@ -7,7 +7,6 @@ import { CheckFat, X } from '@phosphor-icons/react'
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { formatDate } from '@/utils/formatValues'
 
-
 export type LogTableProps = {
   id: string
   groupId: string

@@ -17,7 +17,7 @@ export function CardGroupListCarousel({ data }: CardGroupListCarouselProps) {
 
   if (toggle) {
     return data
-      .filter((group) => group.group_info.name === name)
+      .filter((group) => group.name === name)
       .map((group) => {
         return <CardGroupModal key={group.id} group={group} />
       })

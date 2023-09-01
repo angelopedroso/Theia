@@ -34,11 +34,11 @@ export function CardGroupModal({ group }: CardGroupModalProps) {
           <CardFooter className="justify-center">
             <Link
               href={{
-                pathname: `groups/${group.group_info.name
+                pathname: `groups/${group.name
                   .toLowerCase()
                   .replace(/[^\w\s-]/g, '')
                   .replace(/ /g, '-')}`,
-                query: { id: group.id, name: group.group_info.name },
+                query: { id: group.id, name: group.name },
               }}
             >
               <Button

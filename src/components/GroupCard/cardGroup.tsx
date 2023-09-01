@@ -7,13 +7,7 @@ import { DefaultGroupIcon } from '../groupIcon'
 import { SignOut, UsersFour } from '@phosphor-icons/react'
 import { CardSettings, CardSettingsProps } from './cardSettings'
 
-import {
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardMotion,
-} from '../ui/card'
+import { CardHeader, CardTitle, CardContent, CardMotion } from '../ui/card'
 import { modalContext } from '@/contexts/modalContext'
 
 type CardGroupProps = {
@@ -59,29 +53,17 @@ export function CardGroup({ isModal = false, data, children }: CardGroupProps) {
       } select-none border-slate-855 bg-slate-850 lg:min-h-full ${
         isModal && 'relative h-auto'
       }`}
-      onClick={() => toggleModal(data.group_info.name)}
+      onClick={() => toggleModal(data.name)}
       whileHover={{ scale: !isModal ? 1.05 : 1.0 }}
     >
       <CardHeader className="flex items-center justify-center">
         <Avatar className="h-32 w-32">
-          <AvatarImage src={data.group_info?.image_url} />
+          <AvatarImage src={data.image_url} />
           <AvatarFallback className="bg-gray-500">
             <DefaultGroupIcon />
           </AvatarFallback>
         </Avatar>
-        <CardTitle className="text-white">{data.group_info.name}</CardTitle>
-        <CardDescription>
-          {data.group_info.inviteCode && (
-            <a
-              href={data.group_info.inviteCode}
-              target="_blank"
-              className="cursor-pointer break-all text-sm font-medium text-indigo-500 duration-200 hover:text-indigo-400"
-              rel="noreferrer"
-            >
-              {data.group_info.inviteCode}
-            </a>
-          )}
-        </CardDescription>
+        <CardTitle className="text-white">{data.name}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex items-center justify-between gap-4 lg:gap-0">
@@ -94,8 +76,8 @@ export function CardGroup({ isModal = false, data, children }: CardGroupProps) {
           <div className="flex items-center gap-2">
             <SignOut size={24} weight="fill" className="text-indigo-600" />
             <span className="font-menu text-sm font-medium text-slate-500">
-              {data.blackList.length
-                ? `${data.blackList.length} blacklisted participants`
+              {data.black_list?.length
+                ? `${data.black_list?.length} blacklisted participants`
                 : 'No blacklisted participants'}
             </span>
           </div>

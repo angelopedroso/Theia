@@ -47,7 +47,7 @@ export function GroupSettingsForm({
   const form = useForm<updateFormProps>({
     resolver: zodResolver(updateFormSchema),
     defaultValues: {
-      group_name: data.group_info.name,
+      group_name: data.name,
       bem_vindo: data.bem_vindo,
       anti_link: data.anti_link,
       anti_porn: data.anti_porn,
@@ -76,11 +76,9 @@ export function GroupSettingsForm({
   function onFormSubmit(formData: updateFormProps) {
     const formattedData: GroupRequestData = {
       id: data.id,
-      old_group_name: data.group_info.name,
+      old_group_name: data.name,
       group_name:
-        formData.group_name !== data.group_info.name
-          ? formData.group_name
-          : undefined,
+        formData.group_name !== data.name ? formData.group_name : undefined,
       g_id: data.g_id,
       bem_vindo: formData.bem_vindo,
       anti_link: formData.anti_link,
@@ -92,7 +90,7 @@ export function GroupSettingsForm({
         status: formData.antiTrava.status,
         max_characters: formData.antiTrava.max_characters,
       },
-      blackList: data.blackList,
+      blackList: data.black_list,
       avatar_image: imageData || undefined,
     }
 
@@ -125,9 +123,9 @@ export function GroupSettingsForm({
                       : 'focus-visible:border-indigo-600'
                   } focus-visible:ring-0 focus-visible:ring-offset-0`}
                   {...form.register('group_name')}
-                  disabled={!data.group_info.isAdmin}
+                  disabled={true}
                 />
-                {!data.group_info.isAdmin && (
+                {true && (
                   <span className="absolute py-1 text-xs text-yellow-500">
                     The group title can only be changed if the bot is an admin
                     of the group.

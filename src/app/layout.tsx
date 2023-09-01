@@ -7,6 +7,9 @@ import './globals.css'
 // eslint-disable-next-line camelcase
 import { Inter, DM_Sans, Open_Sans } from 'next/font/google'
 import { FilterTableProvider } from '@/contexts/filterContext'
+import { configDotenv } from 'dotenv'
+
+configDotenv()
 
 const inter = Inter({
   subsets: ['latin'],
