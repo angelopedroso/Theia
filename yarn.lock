@@ -850,10 +850,10 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@rocketseat/eslint-config@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@rocketseat/eslint-config/-/eslint-config-2.0.1.tgz"
-  integrity sha512-QYAk0uBAJ5mJrDqo9j77Ka6eRiUbTtqcSa42ky1Ka3BcEu5TREXNOx9xAHKsxxbasAYuHALyXXqEbrFwskfgsg==
+"@rocketseat/eslint-config@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@rocketseat/eslint-config/-/eslint-config-2.1.0.tgz#d021b5674e3e5630d0b328bc3096dac971b730fd"
+  integrity sha512-E4wdeuDcGtOKXH/hchPabLLsbCqH6yhavyAbGotr7WbzvdBH93+CtTHU5iAdauaQ28EPvFgQNtcebXtfYB0wVg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.25.0"
     "@typescript-eslint/parser" "^5.25.0"
@@ -1796,6 +1796,11 @@ dom-helpers@^3.4.0:
   integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
   dependencies:
     "@babel/runtime" "^7.1.2"
+
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
 
 electron-to-chromium@^1.4.431:
   version "1.4.459"
@@ -3696,10 +3701,10 @@ recharts-scale@^0.4.4:
   dependencies:
     decimal.js-light "^2.4.1"
 
-recharts@^2.7.3:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/recharts/-/recharts-2.7.3.tgz#ca15789f94495d56a484ff6c0d9c7f665af0472d"
-  integrity sha512-cKoO9jUZRQavn06H6Ih2EcG82zUNdQH3OEGWVCmluSDyp3d7fIpDAsbMTd8hE8+T+MD8P76iicv/J4pJspDP7A==
+recharts@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-2.8.0.tgz#90c95136e2cb6930224c94a51adce607701284fc"
+  integrity sha512-nciXqQDh3aW8abhwUlA4EBOBusRHLNiKHfpRZiG/yjups1x+auHb2zWPuEcTn/IMiN47vVMMuF8Sr+vcQJtsmw==
   dependencies:
     classnames "^2.2.5"
     eventemitter3 "^4.0.1"
