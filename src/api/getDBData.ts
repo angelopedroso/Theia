@@ -18,7 +18,6 @@ export async function getDBData({
 
     return data
   } catch (error) {
-    console.log(error)
     return null
   }
 }
