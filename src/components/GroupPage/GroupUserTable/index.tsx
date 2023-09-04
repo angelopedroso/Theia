@@ -22,7 +22,7 @@ export function GroupUserTable({ data }: GroupUserTableProps) {
       </div>
       <DataTable
         groupId={data.g_id}
-        data={data.participants}
+        data={data?.participants}
         columns={column}
         pageSize={15}
         tableHeight="min-h-[41rem]"

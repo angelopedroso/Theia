@@ -113,7 +113,7 @@ export function FilterBy<T>({
         </DropdownMenu>
       </div>
       <div>
-        {table.getFilteredSelectedRowModel().rows.length > 0 && (
+        {table.getFilteredSelectedRowModel().rows?.length > 0 && (
           <AlertDialogComp onRemove={handleRemoveFilter} />
         )}
       </div>
