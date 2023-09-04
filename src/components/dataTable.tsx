@@ -34,7 +34,7 @@ export interface DataTableProps<TData, TValue> {
   tableWidth?: string
   tableHeight?: string
   pageSize?: number
-  filterTable?: boolean
+  filterTable?: { filter: boolean; banLog?: boolean }
 }
 
 export function DataTable<TData, TValue>({
@@ -43,11 +43,13 @@ export function DataTable<TData, TValue>({
   tableWidth = '',
   tableHeight = 'min-h-2xl',
   pageSize = 5,
-  filterTable = false,
+  filterTable = { filter: false, banLog: false },
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [filterBy, setFilterBy] = useState('chat_name')
+  const [filterBy, setFilterBy] = useState(
+    filterTable.banLog ? 'user_name' : 'chat_name',
+  )
   const [windowWidth, setWindowWidth] = useState(false)
 
   const table = useReactTable({
@@ -72,8 +74,13 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-8">
-      {filterTable && (
-        <FilterBy filter={filterBy} setFilterBy={setFilterBy} table={table} />
+      {filterTable.filter && (
+        <FilterBy
+          filter={filterBy}
+          setFilterBy={setFilterBy}
+          table={table}
+          banLog={filterTable.banLog}
+        />
       )}
 
       <div

@@ -21,9 +21,15 @@ export interface FilterByProps<T> {
   table: Table<T>
   setFilterBy: (filterBy: string) => void
   filter: string
+  banLog?: boolean
 }
 
-export function FilterBy<T>({ table, filter, setFilterBy }: FilterByProps<T>) {
+export function FilterBy<T>({
+  table,
+  filter,
+  setFilterBy,
+  banLog = false,
+}: FilterByProps<T>) {
   const { setSearch } = useContext(filterTableContext)
 
   function handleChangeSearch(event: React.ChangeEvent<HTMLInputElement>) {
@@ -65,27 +71,32 @@ export function FilterBy<T>({ table, filter, setFilterBy }: FilterByProps<T>) {
           >
             Username
           </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => setFilterBy('chat_name')}
-            className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
-          >
-            Chat
-          </DropdownMenuItem>
-          <DropdownMenuSeparator className="bg-slate-850" />
-          <div className="flex items-center gap-2 px-2 py-1.5">
-            <span className="cursor-default select-none text-sm text-slate-200">
-              Only group
-            </span>
-            <Switch
-              className="h-4 w-8"
-              onCheckedChange={(event) =>
-                table.getColumn('is_group')?.setFilterValue(event)
-              }
-              defaultChecked
-            >
-              <SwitchThumb />
-            </Switch>
-          </div>
+          {!banLog && (
+            <>
+              {' '}
+              <DropdownMenuItem
+                onClick={() => setFilterBy('chat_name')}
+                className="text-gray-200 focus:bg-slate-850 focus:text-gray-200"
+              >
+                Chat
+              </DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-slate-850" />
+              <div className="flex items-center gap-2 px-2 py-1.5">
+                <span className="cursor-default select-none text-sm text-slate-200">
+                  Only group
+                </span>
+                <Switch
+                  className="h-4 w-8"
+                  onCheckedChange={(event) =>
+                    table.getColumn('is_group')?.setFilterValue(event)
+                  }
+                  defaultChecked
+                >
+                  <SwitchThumb />
+                </Switch>
+              </div>
+            </>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

@@ -16,7 +16,7 @@ export default async function ActivityLogPage() {
           columns={columns}
           pageSize={15}
           tableHeight="min-h-[41rem]"
-          filterTable
+          filterTable={{ filter: true, banLog: false }}
         />
       </main>
     </div>
