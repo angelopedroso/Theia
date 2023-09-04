@@ -70,7 +70,7 @@ export function CardGroup({ isModal = false, data, children }: CardGroupProps) {
           <div className="flex items-center gap-2">
             <UsersFour size={24} weight="fill" className="text-indigo-600" />
             <span className="font-menu text-sm font-medium text-slate-500">
-              {data.participants.length} participants
+              {data.participants?.length} participants
             </span>
           </div>
           <div className="flex items-center gap-2">

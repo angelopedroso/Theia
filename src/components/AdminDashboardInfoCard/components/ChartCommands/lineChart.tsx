@@ -16,7 +16,7 @@ const CustomTooltip = ({
   payload?: { value: string }[]
   label?: string
 }) => {
-  if (active && payload && payload.length) {
+  if (active && payload && payload?.length) {
     return (
       <div className="flex flex-col justify-start gap-1 rounded-md border border-slate-875 bg-slate-855 p-4 shadow-md">
         <span className="text-lg font-medium text-white">{label}</span>

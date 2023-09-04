@@ -130,7 +130,7 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow className="border-none hover:bg-transparent">
-                <TableCell colSpan={columns.length} className="h-[33.8rem]">
+                <TableCell colSpan={columns?.length} className="h-[33.8rem]">
                   <NoResults />
                 </TableCell>
               </TableRow>

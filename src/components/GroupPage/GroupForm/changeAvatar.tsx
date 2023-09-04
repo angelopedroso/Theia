@@ -38,7 +38,7 @@ export function ChangeAvatar({
           const wordCut = 'base64,'
           const formattedBase64 = String(reader.result).indexOf(wordCut)
           imageUrlFormReturn(
-            String(reader.result).substring(formattedBase64 + wordCut.length),
+            String(reader.result).substring(formattedBase64 + wordCut?.length),
           )
         }
       }
