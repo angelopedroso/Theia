@@ -130,7 +130,7 @@ export const columns: ColumnDef<BanLogTableProps>[] = [
   {
     accessorKey: 'reason',
     header: ({ column }) => {
-      return <ColumnSortingButton isGroup column={column} title="Chat" />
+      return <ColumnSortingButton isGroup column={column} title="Reason" />
     },
     cell: ({ row }) => {
       const reason = row.original.reason
