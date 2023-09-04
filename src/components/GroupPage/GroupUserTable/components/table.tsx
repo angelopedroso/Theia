@@ -112,7 +112,7 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+            {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
@@ -131,7 +131,7 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow className="border-none hover:bg-transparent">
-                <TableCell colSpan={columns?.length} className="h-[33.8rem]">
+                <TableCell colSpan={columns.length} className="h-[33.8rem]">
                   <NoResults />
                 </TableCell>
               </TableRow>
