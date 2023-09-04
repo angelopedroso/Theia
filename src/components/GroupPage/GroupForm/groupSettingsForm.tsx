@@ -52,8 +52,8 @@ export function GroupSettingsForm({
       anti_link: data.anti_link,
       anti_porn: data.anti_porn,
       antiTrava: {
-        status: data.anti_trava.status,
-        max_characters: data.anti_trava.max_characters,
+        status: data.anti_trava?.status,
+        max_characters: data.anti_trava?.max_characters,
       },
       auto_invite_link: data.auto_invite_link,
       auto_sticker: data.auto_sticker,
@@ -87,8 +87,8 @@ export function GroupSettingsForm({
       auto_sticker: formData.auto_sticker,
       auto_invite_link: formData.auto_invite_link,
       antiTrava: {
-        status: formData.antiTrava.status,
-        max_characters: formData.antiTrava.max_characters,
+        status: formData.antiTrava?.status,
+        max_characters: formData.antiTrava?.max_characters,
       },
       blackList: data.black_list,
       avatar_image: imageData || undefined,
