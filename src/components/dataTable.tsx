@@ -90,12 +90,12 @@ export function DataTable<TData, TValue>({
       >
         <Table className={`relative ${tableWidth}`}>
           <TableHeader className="rounded-lg border-none bg-slate-825">
-            {table.getHeaderGroups().map((headerGroup) => (
+            {table.getHeaderGroups()?.map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}
                 className="border-b border-t border-slate-855 hover:bg-slate-825"
               >
-                {headerGroup.headers.map((header) => {
+                {headerGroup.headers?.map((header) => {
                   return (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
@@ -112,13 +112,13 @@ export function DataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows?.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
                   className="border-none hover:bg-slate-700"
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells()?.map((cell) => (
                     <TableCell key={cell.id} className="px-4 py-2">
                       {flexRender(
                         cell.column.columnDef.cell,
