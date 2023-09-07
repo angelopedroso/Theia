@@ -16,15 +16,15 @@ export async function generateMetadata({ searchParams }: GroupPageIdProps) {
   }
 }
 
-export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
-  const groupId = searchParams.id
+export default async function GroupPageId(props: unknown) {
+  // const groupId = searchParams.id
 
-  const data: GroupsProps = await getDBData({
-    uri: `groups/${groupId}`,
-    revalidateTimeInSeconds: 60 * 2,
-  })
+  // const data: GroupsProps = await getDBData({
+  //   uri: `groups/${groupId}`,
+  //   revalidateTimeInSeconds: 60 * 2,
+  // })
 
-  return <h1 className="text-white">{groupId}</h1>
+  return <pre>{JSON.stringify(props, null, 2)}</pre>
 
   //   <ModalProvider>
   //   <div className="flex h-full flex-col p-8">
