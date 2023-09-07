@@ -22,17 +22,5 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
     revalidateTimeInSeconds: 60 * 2,
   })
 
-  return (
-    <ModalProvider>
-      <div className="flex h-full flex-col p-8">
-        <div className="mb-6 border-b border-slate-600 pb-6">
-          <Header title={data.name} className="mb-0" />
-        </div>
-        <main className="relative flex flex-col items-end gap-8">
-          <EditGroupSettings data={data} />
-          <GroupUserTable data={data} />
-        </main>
-      </div>
-    </ModalProvider>
-  )
+  return <h1 className="text-white">{groupId}</h1>
 }
