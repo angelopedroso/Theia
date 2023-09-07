@@ -9,17 +9,15 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import { Table } from '@tanstack/react-table'
 import { filterTableContext } from '@/contexts/filterContext'
 import { Button, Input } from '@/components/ui'
 import { AlertDialogComp } from '@/components/alertDialog'
-import { AlertModal } from '@/components/alertModal'
-
-import { modalContext } from '@/contexts/modalContext'
 
 import { removeParticipant } from '@/api/actions/query'
+import { useToast } from '@/components/ui/use-toast'
 
 export interface FilterByProps<T> {
   table: Table<T>
@@ -35,36 +33,31 @@ export function FilterBy<T>({
   setFilterBy,
 }: FilterByProps<T>) {
   const { setSearch } = useContext(filterTableContext)
-  const { handleAlertModal, alert } = useContext(modalContext)
+  const { toast } = useToast()
 
   function handleChangeSearch(event: React.ChangeEvent<HTMLInputElement>) {
     table.getColumn(filter)?.setFilterValue(event.target.value)
     setSearch(event.target.value)
   }
 
-  async function handleRemoveFilter() {
-    // const formattedUserId = table
-    //   .getFilteredSelectedRowModel()
-    //   .rows.map(({ original }) => {
-    //     const formattedId = original as { p_id: string }
+  // async function handleRemoveFilter() {
+  //   const formattedUserId = table
+  //     .getFilteredSelectedRowModel()
+  //     .rows.map(({ original }) => {
+  //       const formattedId = original as { p_id: string }
 
-    //     return `${formattedId.p_id}@c.us`
-    //   })
+  //       return `${formattedId.p_id}@c.us`
+  //     })
 
-    // await removeParticipant({ users: formattedUserId, group })
+  //   await removeParticipant({ users: formattedUserId, group })
 
-    // handleAlertModal(true)
+  //   toast({
+  //     title: 'Successfully',
+  //     description: 'User(s) has been removed from group!',
+  //   })
 
-    table.resetRowSelection()
-  }
-
-  useEffect(() => {
-    if (alert) {
-      setTimeout(() => {
-        handleAlertModal(false)
-      }, 2000)
-    }
-  }, [alert, handleAlertModal])
+  //   table.resetRowSelection()
+  // }
 
   return (
     <div className="flex w-full items-center justify-between gap-2 sm:gap-0">
@@ -112,12 +105,11 @@ export function FilterBy<T>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div>
+      {/* <div>
         {table.getFilteredSelectedRowModel().rows?.length > 0 && (
           <AlertDialogComp onRemove={handleRemoveFilter} />
         )}
-      </div>
-      {alert && <AlertModal desc="User(s) has been removed from group!" />}
+      </div> */}
     </div>
   )
 }

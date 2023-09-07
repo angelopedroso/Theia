@@ -1,3 +1,5 @@
+'use client'
+
 import { updateBot } from '@/api/actions/query'
 import {
   Button,
@@ -10,7 +12,8 @@ import {
   Switch,
   SwitchThumb,
 } from '@/components/ui'
-import React, { useEffect, useState, useTransition } from 'react'
+import { useToast } from '@/components/ui/use-toast'
+import React, { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 
 export interface BotFormularyProps {
@@ -18,17 +21,9 @@ export interface BotFormularyProps {
   private: boolean
 }
 
-type BotForm = BotFormularyProps & {
-  setIsAlert: (value: boolean) => void
-}
-
-export function BotFormulary({
-  id,
-  private: privateChat,
-  setIsAlert,
-}: BotForm) {
+export function BotFormulary({ id, private: privateChat }: BotFormularyProps) {
   const [isSubmitting, startTransition] = useTransition()
-  const [submitted, setSubmitted] = useState(true)
+  const { toast } = useToast()
   const form = useForm<BotFormularyProps>({
     defaultValues: {
       id,
@@ -41,16 +36,11 @@ export function BotFormulary({
     private: privateChat,
   }: BotFormularyProps) {
     startTransition(() => updateBot({ id, private: privateChat }))
-    setSubmitted(true)
+    toast({
+      title: 'Bot updated',
+      description: 'Bot settings has been updated!',
+    })
   }
-
-  useEffect(() => {
-    if (form.formState.isSubmitSuccessful && !isSubmitting) {
-      setTimeout(() => {
-        setSubmitted(false)
-      }, 2000)
-    }
-  }, [form.formState.isSubmitSuccessful, isSubmitting])
 
   return (
     <>
@@ -88,9 +78,6 @@ export function BotFormulary({
           </Button>
         </form>
       </Form>
-      {setIsAlert(
-        submitted && !isSubmitting && form.formState.isSubmitSuccessful,
-      )}
     </>
   )
 }
