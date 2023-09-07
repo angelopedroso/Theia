@@ -8,6 +8,8 @@ import './globals.css'
 import { Inter, DM_Sans, Open_Sans } from 'next/font/google'
 import { FilterTableProvider } from '@/contexts/filterContext'
 import { configDotenv } from 'dotenv'
+import { getDBData } from '@/api/getDBData'
+import { Toaster } from '@/components/ui/toaster'
 
 configDotenv()
 
@@ -34,11 +36,16 @@ export const metadata: Metadata = {
   description: 'Theia dashboard',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const data = await getDBData({
+    uri: 'bot',
+    revalidateTimeInSeconds: 0,
+  })
+
   return (
     <html lang="en">
       <body
@@ -46,7 +53,8 @@ export default function RootLayout({
       >
         <Providers>
           <FilterTableProvider>
-            <SideMenu>{children}</SideMenu>
+            <SideMenu botData={data}>{children}</SideMenu>
+            <Toaster />
           </FilterTableProvider>
         </Providers>
       </body>
