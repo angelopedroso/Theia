@@ -38,7 +38,7 @@ export function CardGroupModal({ group }: CardGroupModalProps) {
                   .toLowerCase()
                   .replace(/[^\w\s-]/g, '')
                   .replace(/ /g, '-')}`,
-                query: { id: group.id, name: group.name },
+                query: { groupId: group.id, name: group.name },
               }}
             >
               <Button
