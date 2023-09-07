@@ -8,6 +8,8 @@ export interface GroupPageIdProps {
   searchParams: { id: string; name: string }
 }
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ searchParams }: GroupPageIdProps) {
   return {
     title: searchParams.name,
@@ -23,4 +25,16 @@ export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
   })
 
   return <h1 className="text-white">{groupId}</h1>
+
+  //   <ModalProvider>
+  //   <div className="flex h-full flex-col p-8">
+  //     <div className="mb-6 border-b border-slate-600 pb-6">
+  //       <Header title={data.name} className="mb-0" />
+  //     </div>
+  //     <main className="relative flex flex-col items-end gap-8">
+  //       <EditGroupSettings data={data} />
+  //       <GroupUserTable data={data} />
+  //     </main>
+  //   </div>
+  // </ModalProvider>
 }
