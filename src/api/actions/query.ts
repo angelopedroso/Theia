@@ -6,11 +6,11 @@ import { api } from '@/lib/axios'
 
 export type GroupRequestData = Omit<updateFormProps, 'group_name'> & {
   g_id: string
-  old_group_name: string
-  group_name?: string
+  // old_group_name: string
+  // group_name?: string
   id: string
-  avatar_image?: string
-  blackList: Participant[]
+  // avatar_image?: string
+  // blackList: Participant[]
 }
 
 export type RemoveParticipantProps = {

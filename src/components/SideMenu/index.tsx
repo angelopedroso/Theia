@@ -15,9 +15,10 @@ import { DropDownBotSettings } from './components/dropDownBotSettings'
 
 export interface SideMenuProps {
   children: ReactNode
+  botData: { id: string; private: boolean }
 }
 
-export function SideMenu({ children }: SideMenuProps) {
+export function SideMenu({ children, botData }: SideMenuProps) {
   const isNotFound = useSelectedLayoutSegment() === '__DEFAULT__'
   const [open, setOpen] = useState(false)
 
@@ -59,7 +60,7 @@ export function SideMenu({ children }: SideMenuProps) {
             <SubMenu elements={routes.utils} open={open} title="Utils" />
           </div>
           <div>
-            <DropDownBotSettings open={open} />
+            <DropDownBotSettings open={open} data={botData} />
           </div>
         </div>
       </aside>
