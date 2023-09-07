@@ -5,7 +5,7 @@ import { Header } from '@/components/ui/header'
 import { ModalProvider } from '@/contexts/modalContext'
 import React from 'react'
 export interface GroupPageIdProps {
-  searchParams: { id: string; name: string }
+  searchParams: { groupId: string; name: string }
 }
 
 export const dynamic = 'force-dynamic'
@@ -16,15 +16,15 @@ export async function generateMetadata({ searchParams }: GroupPageIdProps) {
   }
 }
 
-export default async function GroupPageId(props: unknown) {
-  // const groupId = searchParams.id
+export default async function GroupPageId({ searchParams }: GroupPageIdProps) {
+  const groupId = searchParams.groupId
 
-  // const data: GroupsProps = await getDBData({
-  //   uri: `groups/${groupId}`,
-  //   revalidateTimeInSeconds: 60 * 2,
-  // })
+  const data: GroupsProps = await getDBData({
+    uri: `groups/${groupId}`,
+    revalidateTimeInSeconds: 60 * 2,
+  })
 
-  return <pre>{JSON.stringify(props, null, 2)}</pre>
+  return <pre>{JSON.stringify(searchParams, null, 2) + '\n' + groupId}</pre>
 
   //   <ModalProvider>
   //   <div className="flex h-full flex-col p-8">
