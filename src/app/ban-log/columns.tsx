@@ -4,7 +4,13 @@ import { ColumnDef } from '@tanstack/react-table'
 
 import { ColumnSortingButton } from '@/components/ui/columnSortingButton'
 import { formatDate } from '@/utils/formatValues'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Avatar, AvatarImage, Button } from '@/components/ui'
 import Image from 'next/image'
 
@@ -62,15 +68,26 @@ export const columns: ColumnDef<BanLogTableProps>[] = [
               <DialogTrigger asChild>
                 <Button
                   variant={'ghost'}
-                  className="w-60 overflow-hidden text-ellipsis whitespace-nowrap rounded-md border px-6 py-3"
+                  className="overflow-hidden whitespace-nowrap rounded-md py-3 text-gray-200"
                 >
-                  {row.getValue('message')}
+                  <span className="w-56 overflow-hidden text-ellipsis">
+                    {row.getValue('message')}
+                  </span>
                 </Button>
               </DialogTrigger>
               <DialogContent>
-                <p className="text-base text-gray-200">
-                  {row.getValue('message')}
-                </p>
+                <DialogHeader>
+                  <DialogTitle className="text-gray-100">Message</DialogTitle>
+                </DialogHeader>
+                <div className="pt-4">
+                  <a
+                    href={row.getValue('message')}
+                    target="_blank"
+                    className="text-base text-gray-200 hover:text-indigo-400"
+                  >
+                    {row.getValue('message')}
+                  </a>
+                </div>
               </DialogContent>
             </Dialog>
           )}
