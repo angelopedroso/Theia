@@ -3,7 +3,7 @@ interface FetchProps {
   uri: string
 }
 
-export const runtime = 'edge';
+export const runtime = 'edge'
 
 export async function getDBData({
   uri = '',
