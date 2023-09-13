@@ -33,6 +33,10 @@ export function CardGroup({ isModal = false, data, children }: CardGroupProps) {
       status: data.anti_porn,
     },
     {
+      name: 'Profany content detector',
+      status: data.anti_profane,
+    },
+    {
       name: 'Freezing whatsapp detector',
       status: data.anti_trava.status,
     },

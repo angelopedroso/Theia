@@ -9,6 +9,7 @@ type FormProps = UseFormReturn<
     group_name: string
     bem_vindo: boolean
     anti_link: boolean
+    anti_profane: boolean
     anti_porn: boolean
     one_group: boolean
     auto_sticker: boolean
@@ -27,6 +28,7 @@ type FormRegistersProps =
   | 'group_name'
   | 'anti_link'
   | 'anti_porn'
+  | 'anti_profane'
   | 'one_group'
   | 'auto_sticker'
   | 'auto_invite_link'

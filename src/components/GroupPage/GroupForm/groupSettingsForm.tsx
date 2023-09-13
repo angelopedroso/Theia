@@ -19,6 +19,7 @@ const updateFormSchema = z.object({
   bem_vindo: z.boolean(),
   anti_link: z.boolean(),
   anti_porn: z.boolean(),
+  anti_profane: z.boolean(),
   one_group: z.boolean(),
   auto_sticker: z.boolean(),
   auto_invite_link: z.boolean(),
@@ -51,6 +52,7 @@ export function GroupSettingsForm({
       bem_vindo: data.bem_vindo,
       anti_link: data.anti_link,
       anti_porn: data.anti_porn,
+      anti_profane: data.anti_profane,
       antiTrava: {
         status: data.anti_trava?.status,
         max_characters: data.anti_trava?.max_characters,
@@ -75,6 +77,7 @@ export function GroupSettingsForm({
       bem_vindo: formData.bem_vindo,
       anti_link: formData.anti_link,
       anti_porn: formData.anti_porn,
+      anti_profane: formData.anti_profane,
       one_group: formData.one_group,
       auto_sticker: formData.auto_sticker,
       auto_invite_link: formData.auto_invite_link,
@@ -198,6 +201,12 @@ export function GroupSettingsForm({
             title="Auto sticker"
             form={form}
             formRegister="auto_sticker"
+          />
+
+          <FormInputSwitch
+            title="Anti Profanity"
+            form={form}
+            formRegister="anti_profane"
           />
 
           <Button

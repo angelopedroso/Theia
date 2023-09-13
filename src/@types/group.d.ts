@@ -13,6 +13,7 @@ type GroupsProps = {
   bem_vindo: boolean
   anti_link: boolean
   anti_porn: boolean
+  anti_profane: boolean
   one_group: boolean
   auto_sticker: boolean
   auto_invite_link: boolean

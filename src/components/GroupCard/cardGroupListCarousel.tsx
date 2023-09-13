@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useContext } from 'react'
-import { CardGroupsPage } from './cardGroupsPage'
 import { motion } from 'framer-motion'
 import { useCarousel } from '@/hooks/useCarousel'
 import { modalContext } from '@/contexts/modalContext'
 import { CardGroupModal } from './cardGroupModal'
+import { CardGroup } from './cardGroup'
 
 export interface CardGroupListCarouselProps {
   data: GroupsProps[]
@@ -37,7 +37,7 @@ export function CardGroupListCarousel({ data }: CardGroupListCarouselProps) {
         animate={{ x: 0 }}
       >
         {data.map((group) => {
-          return <CardGroupsPage key={group.id} data={group} />
+          return <CardGroup key={group.id} data={group} />
         })}
       </motion.div>
     </motion.section>
