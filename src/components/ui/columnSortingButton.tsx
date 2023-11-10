@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { CaretUpDown } from '@phosphor-icons/react'
 import { Column } from '@tanstack/react-table'

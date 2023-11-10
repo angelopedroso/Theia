@@ -1,3 +1,5 @@
+'use client'
+
 import { IconProps } from '@phosphor-icons/react'
 import { ForwardRefExoticComponent, RefAttributes } from 'react'
 import { MenuButton } from './menuButton'

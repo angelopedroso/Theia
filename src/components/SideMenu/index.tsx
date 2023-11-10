@@ -19,7 +19,9 @@ export interface SideMenuProps {
 }
 
 export function SideMenu({ children, botData }: SideMenuProps) {
-  const isNotFound = useSelectedLayoutSegment() === '__DEFAULT__'
+  const blockedSideBar = ['__DEFAULT__', 'login']
+  const isNotFound = blockedSideBar.includes(useSelectedLayoutSegment() + '')
+
   const [open, setOpen] = useState(false)
 
   if (isNotFound) {

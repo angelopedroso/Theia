@@ -1,3 +1,5 @@
+'use client'
+
 import { DotsThreeOutline } from '@phosphor-icons/react'
 
 import {

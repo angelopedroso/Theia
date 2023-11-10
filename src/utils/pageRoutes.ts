@@ -1,3 +1,5 @@
+'use client'
+
 import { HardDrives, Receipt, UsersThree } from '@phosphor-icons/react'
 
 export const routes = {

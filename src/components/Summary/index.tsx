@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card } from './components/Card'
 import { Pulse, SignOut, UserList, UsersThree } from '@phosphor-icons/react'
 import { DataTotalSummaryProps } from '@/@types/totalSummary'
 import { useCarousel } from '@/hooks/useCarousel'
+import { redirect } from 'next/navigation'
 
 interface SummaryProps {
   data: DataTotalSummaryProps
@@ -13,6 +14,14 @@ interface SummaryProps {
 
 export function Summary({ data }: SummaryProps) {
   const { carouselRef, carouselWidth } = useCarousel()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('login') !== 'true') {
+        redirect('/login')
+      }
+    }
+  }, [])
 
   return (
     <motion.section

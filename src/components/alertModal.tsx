@@ -1,3 +1,5 @@
+'use client'
+
 import { CheckFat } from '@phosphor-icons/react'
 import React from 'react'
 import { Alert, AlertTitle, AlertDescription } from './ui/alert'
