@@ -1,9 +1,5 @@
 # Theia - (Hiperion's extension)
 
-## Under Development
-
----
-
 ## Overview
 
 Theia is a web application built with Next.js 13 that serves as an extension to the [Hiperion-Bot](https://github.com/angelopedroso/Hiperion-Bot), enabling additional functionalities and a user-friendly dashboard for managing WhatsApp groups. The application facilitates group administration, including banning participants, updating group names and photos, and adjusting bot settings within the groups. It also provides a dashboard with insights into group administrators, the bot's active groups, and a graph displaying command usage per group. The chart utilizes Recharts, a charting library for React.
